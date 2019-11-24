@@ -1,10 +1,16 @@
 package interfaces;
 
+import java.sql.SQLException;
 import java.util.Scanner;
+
+import interfaces.CRUDItem.DeleteItemInterface;
+import interfaces.CRUDItem.InsertItemInterface;
+import interfaces.CRUDItem.SelectItemInterface;
+import interfaces.CRUDItem.UpdateItemInterface;
 
 public class ItemInterface {
 
-    public ItemInterface(Scanner s) {
+    public ItemInterface(Scanner s) throws ClassNotFoundException, SQLException {
         System.out.println("Selecione a sua ação:\n");
         System.out.println("1: Inserir\n");
         System.out.println("2: Atualizar\n");
@@ -14,12 +20,20 @@ public class ItemInterface {
 
     }
 
-    private void acao(int nextInt, Scanner s) {
+    private void acao(int nextInt, Scanner s) throws ClassNotFoundException, SQLException {
         switch (nextInt) {
         case 1:
-            new ItemInterface(s);
+            new InsertItemInterface(s);
             break;
-
+        case 2:
+            new UpdateItemInterface(s);
+            break;
+        case 3:
+            new DeleteItemInterface(s);
+            break;
+        case 4:
+            new SelectItemInterface(s);
+            break;
         default:
             break;
         }

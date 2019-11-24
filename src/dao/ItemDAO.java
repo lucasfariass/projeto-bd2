@@ -91,7 +91,7 @@ public class ItemDAO {
         query.close();
     }
 
-    public void deleteItem(String codigo) throws SQLException {
+    public void deleteItem(Integer codigo) throws SQLException {
         String sql = "DELETE FROM item i WHERE i.codigo = ?";
         PreparedStatement query = con.prepareStatement(sql);
         query.setInt(1, codigo);

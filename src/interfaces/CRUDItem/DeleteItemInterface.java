@@ -20,7 +20,7 @@ public class DeleteItemInterface {
         switch (nextInt) {
         case 1:
             System.out.println("\nDigite o codigo:");
-            iDao.deleteItem(s.nextLine());
+            iDao.deleteItem(s.nextInt());
             break;
         default:
             break;
