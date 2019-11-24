@@ -9,6 +9,7 @@ import entidades.Animal;
 
 public class UpdateAnimalInterface {
     private AnimalDAO aDao = null;
+    private Animal a = new Animal();
 
     public UpdateAnimalInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.aDao = new AnimalDAO();
@@ -44,7 +45,6 @@ public class UpdateAnimalInterface {
     }
 
     private void updatePrecoVendaPrecoVenda(Scanner s) {
-        Animal a = new Animal();
         System.out.println("\nDigite o registro do animal:");
         a.setRegistro(s.nextInt());
         System.out.println("\nDigite o novo preço de compra:");
@@ -75,7 +75,6 @@ public class UpdateAnimalInterface {
     }
 
     private void updatePrecoVenda(Scanner s) {
-        Animal a = new Animal();
         System.out.println("\nDigite o registro do animal:");
         a.setRegistro(s.nextInt());
         System.out.println("\nDigite o novo preço de venda:");
@@ -89,7 +88,6 @@ public class UpdateAnimalInterface {
     }
 
     private void updateAlturaDataUltMed(Scanner s) {
-        Animal a = new Animal();
         System.out.println("\nDigite o registro do animal:");
         a.setRegistro(s.nextInt());
         System.out.println("\nDigite a nova altura:");
@@ -105,7 +103,6 @@ public class UpdateAnimalInterface {
     }
 
     private void updatePesoAlturaDataUltMed(Scanner s) {
-        Animal a = new Animal();
         System.out.println("\nDigite o registro do animal:");
         a.setRegistro(s.nextInt());
         System.out.println("\nDigite a nova altura:");

@@ -7,7 +7,9 @@ import dao.AnimalDAO;
 import entidades.Animal;
 
 public class InsertAnimalInterface {
+
     private AnimalDAO aDao = null;
+    private Animal a = new Animal();
 
     public InsertAnimalInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.aDao = new AnimalDAO();
@@ -44,7 +46,6 @@ public class InsertAnimalInterface {
     }
 
     private void inserirSemDataNasc(Scanner s) {
-        Animal a = new Animal();
         System.out.println("\nDigite o tipo:");
         a.setTipo(s.nextLine());
         System.out.println("\nDigite o peso:");
@@ -68,7 +69,6 @@ public class InsertAnimalInterface {
     }
 
     private void inserirSemPrecoVendaPrecoCompra(Scanner s) {
-        Animal a = new Animal();
         System.out.println("\nDigite o tipo:");
         a.setTipo(s.nextLine());
         System.out.println("\nDigite o peso:");
@@ -90,7 +90,6 @@ public class InsertAnimalInterface {
     }
 
     private void inserirSemPrecoVenda(Scanner s) {
-        Animal a = new Animal();
         System.out.println("\nDigite o tipo:");
         a.setTipo(s.nextLine());
         System.out.println("\nDigite o peso:");
@@ -114,7 +113,6 @@ public class InsertAnimalInterface {
     }
 
     private void inserirSemPesoAlturaDataUltMed(Scanner s) {
-        Animal a = new Animal();
         System.out.println("\nDigite o tipo:");
         a.setTipo(s.nextLine());
         System.out.println("\nDigite o peso:");
@@ -138,7 +136,6 @@ public class InsertAnimalInterface {
     }
 
     private void inserirAnimal(Scanner s) {
-        Animal a = new Animal();
         System.out.println("\nDigite o tipo:");
         a.setTipo(s.nextLine());
         System.out.println("\nDigite o peso:");

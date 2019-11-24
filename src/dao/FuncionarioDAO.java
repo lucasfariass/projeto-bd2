@@ -63,7 +63,7 @@ public class FuncionarioDAO {
         String sql = "UPDATE funcionario SET nome = ? WHERE matricula = ?";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, f.getNome());
-        query.setLong(2, f.getMatricula());
+        query.setInt(2, f.getMatricula());
         query.execute();
         query.close();
     }
@@ -104,10 +104,10 @@ public class FuncionarioDAO {
         query.close();
     }
 
-    public void deleteFuncionario(Funcionario f) throws SQLException {
+    public void deleteFuncionario(Integer matricula) throws SQLException {
         String sql = "DELETE FROM funcionario f WHERE f.matricula = ?";
         PreparedStatement query = con.prepareStatement(sql);
-        query.setLong(1, f.getMatricula());
+        query.setInt(1, matricula);
         query.execute();
         query.close();
     }
@@ -119,7 +119,7 @@ public class FuncionarioDAO {
         query.close();
     }
 
-    public void selectByDescricao(String nome) throws SQLException {
+    public void selectByNome(String nome) throws SQLException {
         String sql = "SELECT * FROM funcionario f WHERE f.nome = ?";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, nome);

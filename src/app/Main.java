@@ -1,8 +1,9 @@
 package app;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
-import interfaces.CRUDAnimal.AnimalInterface;
+import interfaces.AnimalInterface;
 import interfaces.FuncionarioInterface;
 import interfaces.ItemInterface;
 import interfaces.VendaAnimalInterface;
@@ -10,7 +11,7 @@ import interfaces.VendaItemInterface;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// Conecta con = new Conecta();
 
 		// try {

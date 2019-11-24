@@ -91,10 +91,10 @@ public class ItemDAO {
         query.close();
     }
 
-    public void deleteItem(Item i) throws SQLException {
+    public void deleteItem(String codigo) throws SQLException {
         String sql = "DELETE FROM item i WHERE i.codigo = ?";
         PreparedStatement query = con.prepareStatement(sql);
-        query.setInt(1, i.getCodigo());
+        query.setInt(1, codigo);
         query.execute();
         query.close();
     }
