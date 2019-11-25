@@ -14,12 +14,12 @@ public class UpdateFuncionarioInterface {
     public UpdateFuncionarioInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.fDao = new FuncionarioDAO();
 
-        System.out.println("Atualizar na tabela funcionario\n");
-        System.out.println("1 - Atualizar nome pela matricula\n");
-        System.out.println("2 - Atualizar nome pelo CPF\n");
-        System.out.println("3 - Atualizar endereço pela matricula\n");
-        System.out.println("4 - Atualizar função pela matricula\n");
-        System.out.println("5 - Atualizar data de demissão pela matricula\n");
+        System.out.println("Atualizar na tabela funcionario");
+        System.out.println("1 - Atualizar nome pela matricula");
+        System.out.println("2 - Atualizar nome pelo CPF");
+        System.out.println("3 - Atualizar endereço pela matricula");
+        System.out.println("4 - Atualizar função pela matricula");
+        System.out.println("5 - Atualizar data de demissão pela matricula");
         opcao(s.nextInt(), s);
     }
 
@@ -46,9 +46,9 @@ public class UpdateFuncionarioInterface {
     }
 
     private void updateDataDemissaoPorMatricula(Scanner s) throws SQLException {
-        System.out.println("\nDigite a matricula:");
+        System.out.println("Digite a matricula:");
         f.setMatricula(s.nextInt());
-        System.out.println("\nDigite a nova data de demissão:");
+        System.out.println("Digite a nova data de demissão:");
         f.setDataDemissao(s.nextLine());
 
         fDao.updateDataDemissaoPorMatricula(f);
@@ -56,36 +56,36 @@ public class UpdateFuncionarioInterface {
     }
 
     private void updateFuncaoPorMatricula(Scanner s) throws SQLException {
-        System.out.println("\nDigite a matricula:");
+        System.out.println("Digite a matricula:");
         f.setMatricula(s.nextInt());
-        System.out.println("\nDigite a nova função");
+        System.out.println("Digite a nova função");
         f.setFuncao(s.nextLine());
 
         fDao.updateFuncaoPorMatricula(f);
     }
 
     private void updateEnderecoPorMatricula(Scanner s) throws SQLException {
-        System.out.println("\nDigite a matricula:");
+        System.out.println("Digite a matricula:");
         f.setMatricula(s.nextInt());
-        System.out.println("\nDigite o novo endereço");
+        System.out.println("Digite o novo endereço");
         f.setEndereco(s.nextLine());
 
         fDao.updateEnderecoPorMatricula(f);
     }
 
     private void updateNomePorCPF(Scanner s) throws SQLException {
-        System.out.println("\nDigite a CPF:");
+        System.out.println("Digite a CPF:");
         f.setCpf(s.nextLine());
-        System.out.println("\nDigite o novo nome:");
+        System.out.println("Digite o novo nome:");
         f.setNome(s.nextLine());
 
         fDao.updateNomePorCPF(f);
     }
 
     private void updateNomePorMatricula(Scanner s) throws SQLException {
-        System.out.println("\nDigite a matricula:");
+        System.out.println("Digite a matricula:");
         f.setMatricula(s.nextInt());
-        System.out.println("\nDigite o nome:");
+        System.out.println("Digite o nome:");
         f.setNome(s.nextLine());
 
         fDao.updateNomePorMatricula(f);

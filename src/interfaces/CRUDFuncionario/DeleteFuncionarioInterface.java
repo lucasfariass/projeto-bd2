@@ -11,15 +11,15 @@ public class DeleteFuncionarioInterface {
 
     public DeleteFuncionarioInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.fDao = new FuncionarioDAO();
-        System.out.println("Deletar da tabela funcionario\n");
-        System.out.println("1 - Deletar pela matricula\n");
+        System.out.println("Deletar da tabela funcionario");
+        System.out.println("1 - Deletar pela matricula");
         opcao(s.nextInt(), s);
     }
 
     private void opcao(int nextInt, Scanner s) throws SQLException {
         switch (nextInt) {
         case 1:
-            System.out.println("\nDigite a matricula");
+            System.out.println("Digite a matricula");
             fDao.deleteFuncionario(s.nextInt());
             break;
         default:

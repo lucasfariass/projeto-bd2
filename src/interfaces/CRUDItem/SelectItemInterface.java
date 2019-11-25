@@ -11,12 +11,12 @@ public class SelectItemInterface {
 
     public SelectItemInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.iDao = new ItemDAO();
-        System.out.println("Selecionar da tabela item\n");
-        System.out.println("1 - Selecionar tudo\n");
-        System.out.println("2 - Selecionar pela descrição\n");
-        System.out.println("3 - Selecionar por tipo\n");
-        System.out.println("4 - Selecionar totalização\n");
-        System.out.println("5 - Selecionar lucro\n");
+        System.out.println("Selecionar da tabela item");
+        System.out.println("1 - Selecionar tudo");
+        System.out.println("2 - Selecionar pela descrição");
+        System.out.println("3 - Selecionar por tipo");
+        System.out.println("4 - Selecionar totalização");
+        System.out.println("5 - Selecionar lucro");
         opcao(s.nextInt(), s);
     }
 
@@ -26,10 +26,10 @@ public class SelectItemInterface {
             iDao.selectAll();
             break;
         case 2:
-            System.out.println("\nDigite a descrição");
+            System.out.println("Digite a descrição");
             iDao.selectByDescricao(s.nextLine());
         case 3:
-            System.out.println("\nDigite o tipo:");
+            System.out.println("Digite o tipo:");
             iDao.selectByTipo(s.nextLine());
         case 4:
             iDao.selectTotalizacao();

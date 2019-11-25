@@ -10,9 +10,9 @@ public class DeleteAnimalInterface {
 
     public DeleteAnimalInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.aDao = new AnimalDAO();
-        System.out.println("Deletar da tabela animal\n");
-        System.out.println("1 - Deletar animal com o registro\n");
-        System.out.println("2 - Deleter por tipo\n");
+        System.out.println("Deletar da tabela animal");
+        System.out.println("1 - Deletar animal com o registro");
+        System.out.println("2 - Deleter por tipo");
         opcao(s.nextInt(), s);
     }
 
@@ -30,13 +30,13 @@ public class DeleteAnimalInterface {
     }
 
     private void deletePorTipo(Scanner s) throws SQLException {
-        System.out.println("\nDigite o registro do tipo:");
+        System.out.println("Digite o registro do tipo:");
 
         aDao.deletePorTipo(s.nextLine());
     }
 
     private void deleteAnimal(Scanner s) throws SQLException {
-        System.out.println("\nDigite o registro do animal:");
+        System.out.println("Digite o registro do animal:");
 
         aDao.deleteAnimal(s.nextInt());
     }

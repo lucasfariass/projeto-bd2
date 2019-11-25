@@ -13,9 +13,9 @@ public class InsertVendaItemInterface {
 
     public InsertVendaItemInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.vDao = new VendaItemDAO();
-        System.out.println("Inserir na tabela venda item\n");
-        System.out.println("1 - Inserir com todos os dados\n");
-        System.out.println("2 - Inserir sem desconto\n");
+        System.out.println("Inserir na tabela venda item");
+        System.out.println("1 - Inserir com todos os dados");
+        System.out.println("2 - Inserir sem desconto");
         opcao(s.nextInt(), s);
     }
 
@@ -33,40 +33,40 @@ public class InsertVendaItemInterface {
     }
 
     private void inserirSemDesconto(Scanner s) throws SQLException {
-        System.out.println("\nDigite o codigo do item:");
+        System.out.println("Digite o codigo do item:");
         v.setItemCodigo(s.nextInt());
-        System.out.println("\nDigite a matricula do funcionario:");
+        System.out.println("Digite a matricula do funcionario:");
         v.setMatriculaFuncionario(s.nextInt());
-        System.out.println("\nDigite o dia: ");
+        System.out.println("Digite o dia: ");
         v.setDia(s.nextInt());
-        System.out.println("\nDigite o mes: ");
+        System.out.println("Digite o mes: ");
         v.setMes(s.nextInt());
-        System.out.println("\nDigite o ano:");
+        System.out.println("Digite o ano:");
         v.setAno(s.nextInt());
-        System.out.println("\nDigite a comissao do item:");
+        System.out.println("Digite a comissao do item:");
         v.setComissaoItem(s.nextDouble());
-        System.out.println("\nDigite o valor final");
+        System.out.println("Digite o valor final");
         v.setValorFinal(s.nextDouble());
 
         vDao.inserirSemDesconto(v);
     }
 
     private void inserirVendaItem(Scanner s) throws SQLException {
-        System.out.println("\nDigite o codigo do item:");
+        System.out.println("Digite o codigo do item:");
         v.setItemCodigo(s.nextInt());
-        System.out.println("\nDigite a matricula do funcionario:");
+        System.out.println("Digite a matricula do funcionario:");
         v.setMatriculaFuncionario(s.nextInt());
-        System.out.println("\nDigite o dia: ");
+        System.out.println("Digite o dia: ");
         v.setDia(s.nextInt());
-        System.out.println("\nDigite o mes: ");
+        System.out.println("Digite o mes: ");
         v.setMes(s.nextInt());
-        System.out.println("\nDigite o ano:");
+        System.out.println("Digite o ano:");
         v.setAno(s.nextInt());
-        System.out.println("\nDigite a comissao do item:");
+        System.out.println("Digite a comissao do item:");
         v.setComissaoItem(s.nextDouble());
-        System.out.println("\nDigite o desconto:");
+        System.out.println("Digite o desconto:");
         v.setDesconto(s.nextDouble());
-        System.out.println("\nDigite o valor final");
+        System.out.println("Digite o valor final");
         v.setValorFinal(s.nextDouble());
 
         vDao.inserirVendaItem(v);

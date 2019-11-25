@@ -11,11 +11,11 @@ public class SelectFuncionarioInterface {
 
     public SelectFuncionarioInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.fDao = new FuncionarioDAO();
-        System.out.println("Selecionar na tabela animal\n");
-        System.out.println("1 - Selecionar tudo\n");
-        System.out.println("2 - Selecionar pela descrição\n");
-        System.out.println("3 - Selecionar dados pelo mes e ano\n");
-        System.out.println("4 - Selecionar salario pelo mes e ano c\n");
+        System.out.println("Selecionar na tabela animal");
+        System.out.println("1 - Selecionar tudo");
+        System.out.println("2 - Selecionar pela descrição");
+        System.out.println("3 - Selecionar dados pelo mes e ano");
+        System.out.println("4 - Selecionar salario pelo mes e ano c");
         opcao(s.nextInt(), s);
 
     }
@@ -26,7 +26,7 @@ public class SelectFuncionarioInterface {
             fDao.selectAll();
             break;
         case 2:
-            System.out.println("\nDigite o nome:");
+            System.out.println("Digite o nome:");
             fDao.selectByNome(s.nextLine());
             break;
         case 3:
@@ -42,9 +42,9 @@ public class SelectFuncionarioInterface {
 
     private void selectDadosByMeseAno(Scanner s) throws SQLException {
         String mes, ano;
-        System.out.println("\nDigite o mes:");
+        System.out.println("Digite o mes:");
         mes = s.nextLine();
-        System.out.println("\nDigite o ano:");
+        System.out.println("Digite o ano:");
         ano = s.nextLine();
 
         fDao.selectDadosByMeseAno(mes, ano);
@@ -52,9 +52,9 @@ public class SelectFuncionarioInterface {
 
     private void selectDadosByMeseAnoSalario(Scanner s) throws SQLException {
         String mes, ano;
-        System.out.println("\nDigite o mes:");
+        System.out.println("Digite o mes:");
         mes = s.nextLine();
-        System.out.println("\nDigite o ano:");
+        System.out.println("Digite o ano:");
         ano = s.nextLine();
 
         fDao.selectDadosByMeseAnoSalario(mes, ano);

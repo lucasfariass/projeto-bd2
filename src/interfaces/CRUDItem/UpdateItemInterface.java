@@ -13,12 +13,12 @@ public class UpdateItemInterface {
 
     public UpdateItemInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.iDao = new ItemDAO();
-        System.out.println("Atualizar na tabela item\n");
-        System.out.println("1 - Atualizar preço do fornecedor\n");
-        System.out.println("2 - Atualizar preço da loja\n");
-        System.out.println("3 - Atualizar preço do fornecedor e da loja\n");
-        System.out.println("4 - Atualizar descrição e tipo\n");
-        System.out.println("5 - Atualizar preço de venda e preço de compra\n");
+        System.out.println("Atualizar na tabela item");
+        System.out.println("1 - Atualizar preço do fornecedor");
+        System.out.println("2 - Atualizar preço da loja");
+        System.out.println("3 - Atualizar preço do fornecedor e da loja");
+        System.out.println("4 - Atualizar descrição e tipo");
+        System.out.println("5 - Atualizar preço de venda e preço de compra");
         opcao(s.nextInt(), s);
     }
 
@@ -42,40 +42,40 @@ public class UpdateItemInterface {
     }
 
     private void updateDescricaoETipo(Scanner s) throws SQLException {
-        System.out.println(("\nDigite o codigo do item:"));
+        System.out.println(("Digite o codigo do item:"));
         i.setCodigo(s.nextInt());
-        System.out.println("\nDigite o novo tipo:");
+        System.out.println("Digite o novo tipo:");
         i.setTipo(s.nextLine());
-        System.out.println("\nDigite a nova descrição:");
+        System.out.println("Digite a nova descrição:");
         i.setDescricao(s.nextLine());
 
         iDao.updateDescricaoTipo(i);
     }
 
     private void updatePrecoFornecedorPrecoLoja(Scanner s) throws SQLException {
-        System.out.println(("\nDigite o codigo do item:"));
+        System.out.println(("Digite o codigo do item:"));
         i.setCodigo(s.nextInt());
-        System.out.println("\nDigite o novo preço loja:");
+        System.out.println("Digite o novo preço loja:");
         i.setPrecoLoja(s.nextDouble());
-        System.out.println("\nDigite o novo preço fornecedor:");
+        System.out.println("Digite o novo preço fornecedor:");
         i.setPrecoFornecedor(s.nextDouble());
 
         iDao.updatePrecoFornecedorPrecoLoja(i);
     }
 
     private void updatePrecoLoja(Scanner s) throws SQLException {
-        System.out.println(("\nDigite o codigo do item:"));
+        System.out.println(("Digite o codigo do item:"));
         i.setCodigo(s.nextInt());
-        System.out.println("\nDigite o novo preço:");
+        System.out.println("Digite o novo preço:");
         i.setPrecoLoja(s.nextDouble());
 
         iDao.updatePrecoLoja(i);
     }
 
     private void updatePrecoFornecedor(Scanner s) throws SQLException {
-        System.out.println(("\nDigite o codigo do item:"));
+        System.out.println(("Digite o codigo do item:"));
         i.setCodigo(s.nextInt());
-        System.out.println("\nDigite o novo preço:");
+        System.out.println("Digite o novo preço:");
         i.setPrecoFornecedor(s.nextDouble());
 
         iDao.updatePrecoFornecedor(i);

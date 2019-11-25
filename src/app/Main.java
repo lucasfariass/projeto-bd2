@@ -21,11 +21,11 @@ public class Main {
 		// }
 
 		Scanner s = new Scanner(System.in);
-		System.out.println("Digite 1 para mexer na tabela Animal\n");
-		System.out.println("Digite 2 para mexer na tabela Funcionario\n");
-		System.out.println("Digite 3 para mexer na tabela Item\n");
-		System.out.println("Digite 4 para mexer na tabela VendaAnimal\n");
-		System.out.println("Digite 5 para mexer na tabela VendaItem\n");
+		System.out.println("Digite 1 para mexer na tabela Animal");
+		System.out.println("Digite 2 para mexer na tabela Funcionario");
+		System.out.println("Digite 3 para mexer na tabela Item");
+		System.out.println("Digite 4 para mexer na tabela VendaAnimal");
+		System.out.println("Digite 5 para mexer na tabela VendaItem");
 
 		switch (s.nextInt()) {
 		case 1:

@@ -11,15 +11,15 @@ public class DeleteVendaItemInterface {
 
     public DeleteVendaItemInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.vDao = new VendaItemDAO();
-        System.out.println("Deletar da tabela venda item\n");
-        System.out.println("1 - Deletar pela nota fiscal\n");
+        System.out.println("Deletar da tabela venda item");
+        System.out.println("1 - Deletar pela nota fiscal");
         opcao(s.nextInt(), s);
     }
 
     private void opcao(int nextInt, Scanner s) throws SQLException {
         switch (nextInt) {
         case 1:
-            System.out.println("\nDigite a nota fiscal: ");
+            System.out.println("Digite a nota fiscal: ");
             vDao.deleteVendaItem(s.nextInt());
             break;
         default:

@@ -12,12 +12,12 @@ public class UpdateAnimalInterface {
 
     public UpdateAnimalInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.aDao = new AnimalDAO();
-        System.out.println("Atualizar na tabela animal\n");
-        System.out.println("1 - Atualizar peso, altura e data da ultima medicação\n");
-        System.out.println("2 - Atualizar a altura e data da ultima medicação\n");
-        System.out.println("3 - Atualizar preço de venda\n");
-        System.out.println("4 - Atualizar preço de compra\n");
-        System.out.println("5 - Atualizar preço de venda e preço de compra\n");
+        System.out.println("Atualizar na tabela animal");
+        System.out.println("1 - Atualizar peso, altura e data da ultima medicação");
+        System.out.println("2 - Atualizar a altura e data da ultima medicação");
+        System.out.println("3 - Atualizar preço de venda");
+        System.out.println("4 - Atualizar preço de compra");
+        System.out.println("5 - Atualizar preço de venda e preço de compra");
         opcao(s.nextInt(), s);
     }
 
@@ -44,11 +44,11 @@ public class UpdateAnimalInterface {
     }
 
     private void updatePrecoVendaPrecoVenda(Scanner s) {
-        System.out.println("\nDigite o registro do animal:");
+        System.out.println("Digite o registro do animal:");
         a.setRegistro(s.nextInt());
-        System.out.println("\nDigite o novo preço de compra:");
+        System.out.println("Digite o novo preço de compra:");
         a.setPrecoCompra(s.nextDouble());
-        System.out.println("\nDigite o novo preço de venda:");
+        System.out.println("Digite o novo preço de venda:");
         a.setPrecoVenda(s.nextDouble());
 
         try {
@@ -60,9 +60,9 @@ public class UpdateAnimalInterface {
 
     private void updatePrecoCompra(Scanner s) {
         Animal a = new Animal();
-        System.out.println("\nDigite o registro do animal:");
+        System.out.println("Digite o registro do animal:");
         a.setRegistro(s.nextInt());
-        System.out.println("\nDigite o novo preço de compra:");
+        System.out.println("Digite o novo preço de compra:");
         a.setPrecoCompra(s.nextDouble());
 
         try {
@@ -74,9 +74,9 @@ public class UpdateAnimalInterface {
     }
 
     private void updatePrecoVenda(Scanner s) {
-        System.out.println("\nDigite o registro do animal:");
+        System.out.println("Digite o registro do animal:");
         a.setRegistro(s.nextInt());
-        System.out.println("\nDigite o novo preço de venda:");
+        System.out.println("Digite o novo preço de venda:");
         a.setPrecoVenda(s.nextDouble());
 
         try {
@@ -87,11 +87,11 @@ public class UpdateAnimalInterface {
     }
 
     private void updateAlturaDataUltMed(Scanner s) {
-        System.out.println("\nDigite o registro do animal:");
+        System.out.println("Digite o registro do animal:");
         a.setRegistro(s.nextInt());
-        System.out.println("\nDigite a nova altura:");
+        System.out.println("Digite a nova altura:");
         a.setAltura(s.nextDouble());
-        System.out.println("\nDigite nova data da ultima medicação:");
+        System.out.println("Digite nova data da ultima medicação:");
         a.setDataUltimaMedicacao(s.nextLine());
 
         try {
@@ -102,13 +102,13 @@ public class UpdateAnimalInterface {
     }
 
     private void updatePesoAlturaDataUltMed(Scanner s) {
-        System.out.println("\nDigite o registro do animal:");
+        System.out.println("Digite o registro do animal:");
         a.setRegistro(s.nextInt());
-        System.out.println("\nDigite a nova altura:");
+        System.out.println("Digite a nova altura:");
         a.setAltura(s.nextDouble());
-        System.out.println("\nDigite o novo peso:");
+        System.out.println("Digite o novo peso:");
         a.setPeso(s.nextDouble());
-        System.out.println("\nDigite nova data da ultima medicação:");
+        System.out.println("Digite nova data da ultima medicação:");
         a.setDataUltimaMedicacao(s.nextLine());
 
         try {

@@ -10,12 +10,12 @@ public class SelectAnimalInterface {
 
     public SelectAnimalInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.aDao = new AnimalDAO();
-        System.out.println("Selecionar da tabela animal\n");
-        System.out.println("1 - Selecionar tudo\n");
-        System.out.println("2 - Selecionar por tipo\n");
-        System.out.println("3 - Selecionar por preço de venda\n");
-        System.out.println("4 - Selecionar totalização\n");
-        System.out.println("5 - Selecionar lucro\n");
+        System.out.println("Selecionar da tabela animal");
+        System.out.println("1 - Selecionar tudo");
+        System.out.println("2 - Selecionar por tipo");
+        System.out.println("3 - Selecionar por preço de venda");
+        System.out.println("4 - Selecionar totalização");
+        System.out.println("5 - Selecionar lucro");
         opcao(s.nextInt(), s);
     }
 
@@ -46,7 +46,7 @@ public class SelectAnimalInterface {
     }
 
     private void selectPorPrecoDeVenda(Scanner s) {
-        System.out.println("\nDigite o preço de venda: ");
+        System.out.println("Digite o preço de venda: ");
 
         try {
             aDao.selectPorPrecoDeVenda(s.nextDouble());
@@ -56,7 +56,7 @@ public class SelectAnimalInterface {
     }
 
     private void selectPorTipo(Scanner s) {
-        System.out.println("\n Digite o tipo: ");
+        System.out.println(" Digite o tipo: ");
 
         try {
             aDao.selectPorTipo(s.nextLine());

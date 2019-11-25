@@ -11,15 +11,15 @@ public class DeleteItemInterface {
 
     public DeleteItemInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.iDao = new ItemDAO();
-        System.out.println("Deletar da tabela item\n");
-        System.out.println("1 - Deletar animal com o registro\n");
+        System.out.println("Deletar da tabela item");
+        System.out.println("1 - Deletar animal com o registro");
         opcao(s.nextInt(), s);
     }
 
     private void opcao(int nextInt, Scanner s) throws SQLException {
         switch (nextInt) {
         case 1:
-            System.out.println("\nDigite o codigo:");
+            System.out.println("Digite o codigo:");
             iDao.deleteItem(s.nextInt());
             break;
         default:

@@ -12,12 +12,12 @@ public class InsertAnimalInterface {
 
     public InsertAnimalInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.aDao = new AnimalDAO();
-        System.out.println("Inserir na tabela animal\n");
-        System.out.println("1 - Inserir com todos os dados\n");
-        System.out.println("2 - Inserir sem peso, altura e data da ultima medicacao\n");
-        System.out.println("3 - Inserir sem preço de venda\n");
-        System.out.println("4 - Inserir sem preço de venda e preço de compra\n");
-        System.out.println("5 - Inserir sem data de nascimento\n");
+        System.out.println("Inserir na tabela animal");
+        System.out.println("1 - Inserir com todos os dados");
+        System.out.println("2 - Inserir sem peso, altura e data da ultima medicacao");
+        System.out.println("3 - Inserir sem preço de venda");
+        System.out.println("4 - Inserir sem preço de venda e preço de compra");
+        System.out.println("5 - Inserir sem data de nascimento");
         opcao(s.nextInt(), s);
     }
 
@@ -45,19 +45,19 @@ public class InsertAnimalInterface {
     }
 
     private void inserirSemDataNasc(Scanner s) {
-        System.out.println("\nDigite o tipo:");
+        System.out.println("Digite o tipo:");
         a.setTipo(s.nextLine());
-        System.out.println("\nDigite o peso:");
+        System.out.println("Digite o peso:");
         a.setPeso(s.nextDouble());
-        System.out.println("\nDigite a altura: ");
+        System.out.println("Digite a altura: ");
         a.setAltura(s.nextDouble());
-        System.out.println("\nDigite a data da ultima medicacao");
+        System.out.println("Digite a data da ultima medicacao");
         a.setDataUltimaMedicacao(s.nextLine());
-        System.out.println("\nDigite a raca:");
+        System.out.println("Digite a raca:");
         a.setRaca(s.nextLine());
-        System.out.println("\nDigite o preço de compra:");
+        System.out.println("Digite o preço de compra:");
         a.setPrecoCompra(s.nextDouble());
-        System.out.println("\nDigite o preço de venda:");
+        System.out.println("Digite o preço de venda:");
         a.setPrecoVenda(s.nextDouble());
 
         try {
@@ -68,17 +68,17 @@ public class InsertAnimalInterface {
     }
 
     private void inserirSemPrecoVendaPrecoCompra(Scanner s) {
-        System.out.println("\nDigite o tipo:");
+        System.out.println("Digite o tipo:");
         a.setTipo(s.nextLine());
-        System.out.println("\nDigite o peso:");
+        System.out.println("Digite o peso:");
         a.setPeso(s.nextDouble());
-        System.out.println("\nDigite a altura: ");
+        System.out.println("Digite a altura: ");
         a.setAltura(s.nextDouble());
-        System.out.println("\nDigite a data da ultima medicacao");
+        System.out.println("Digite a data da ultima medicacao");
         a.setDataUltimaMedicacao(s.nextLine());
-        System.out.println("\nDigite a raca:");
+        System.out.println("Digite a raca:");
         a.setRaca(s.nextLine());
-        System.out.println("\nDigite a data de nascimento");
+        System.out.println("Digite a data de nascimento");
         a.setDataNascimento(s.nextLine());
 
         try {
@@ -89,19 +89,19 @@ public class InsertAnimalInterface {
     }
 
     private void inserirSemPrecoVenda(Scanner s) {
-        System.out.println("\nDigite o tipo:");
+        System.out.println("Digite o tipo:");
         a.setTipo(s.nextLine());
-        System.out.println("\nDigite o peso:");
+        System.out.println("Digite o peso:");
         a.setPeso(s.nextDouble());
-        System.out.println("\nDigite a altura: ");
+        System.out.println("Digite a altura: ");
         a.setAltura(s.nextDouble());
-        System.out.println("\nDigite a data da ultima medicacao");
+        System.out.println("Digite a data da ultima medicacao");
         a.setDataUltimaMedicacao(s.nextLine());
-        System.out.println("\nDigite a raca:");
+        System.out.println("Digite a raca:");
         a.setRaca(s.nextLine());
-        System.out.println("\nDigite o preço de compra:");
+        System.out.println("Digite o preço de compra:");
         a.setPrecoCompra(s.nextDouble());
-        System.out.println("\nDigite a data de nascimento");
+        System.out.println("Digite a data de nascimento");
         a.setDataNascimento(s.nextLine());
 
         try {
@@ -112,19 +112,19 @@ public class InsertAnimalInterface {
     }
 
     private void inserirSemPesoAlturaDataUltMed(Scanner s) {
-        System.out.println("\nDigite o tipo:");
+        System.out.println("Digite o tipo:");
         a.setTipo(s.nextLine());
-        System.out.println("\nDigite o peso:");
+        System.out.println("Digite o peso:");
         a.setPeso(s.nextDouble());
-        System.out.println("\nDigite a altura: ");
+        System.out.println("Digite a altura: ");
         a.setAltura(s.nextDouble());
-        System.out.println("\nDigite a raca:");
+        System.out.println("Digite a raca:");
         a.setRaca(s.nextLine());
-        System.out.println("\nDigite o preço de compra:");
+        System.out.println("Digite o preço de compra:");
         a.setPrecoCompra(s.nextDouble());
-        System.out.println("\nDigite o preço de venda:");
+        System.out.println("Digite o preço de venda:");
         a.setPrecoVenda(s.nextDouble());
-        System.out.println("\nDigite a data de nascimento");
+        System.out.println("Digite a data de nascimento");
         a.setDataNascimento(s.nextLine());
 
         try {
@@ -135,21 +135,21 @@ public class InsertAnimalInterface {
     }
 
     private void inserirAnimal(Scanner s) {
-        System.out.println("\nDigite o tipo:");
+        System.out.println("Digite o tipo:");
         a.setTipo(s.nextLine());
-        System.out.println("\nDigite o peso:");
+        System.out.println("Digite o peso:");
         a.setPeso(s.nextDouble());
-        System.out.println("\nDigite a altura: ");
+        System.out.println("Digite a altura: ");
         a.setAltura(s.nextDouble());
-        System.out.println("\nDigite a data da ultima medicacao");
+        System.out.println("Digite a data da ultima medicacao");
         a.setDataUltimaMedicacao(s.nextLine());
-        System.out.println("\nDigite a raca:");
+        System.out.println("Digite a raca:");
         a.setRaca(s.nextLine());
-        System.out.println("\nDigite o preço de compra:");
+        System.out.println("Digite o preço de compra:");
         a.setPrecoCompra(s.nextDouble());
-        System.out.println("\nDigite o preço de venda:");
+        System.out.println("Digite o preço de venda:");
         a.setPrecoVenda(s.nextDouble());
-        System.out.println("\nDigite a data de nascimento");
+        System.out.println("Digite a data de nascimento");
         a.setDataNascimento(s.nextLine());
 
         try {

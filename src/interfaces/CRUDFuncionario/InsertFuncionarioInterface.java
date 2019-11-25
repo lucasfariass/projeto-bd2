@@ -13,10 +13,10 @@ public class InsertFuncionarioInterface {
 
     public InsertFuncionarioInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.fDao = new FuncionarioDAO();
-        System.out.println("Inserir na tabela Funcionario\n");
-        System.out.println("1 - Inserir com todos os dados\n");
-        System.out.println("2 - Inserir sem salario\n");
-        System.out.println("3 - Inserir sem telefone\n");
+        System.out.println("Inserir na tabela Funcionario");
+        System.out.println("1 - Inserir com todos os dados");
+        System.out.println("2 - Inserir sem salario");
+        System.out.println("3 - Inserir sem telefone");
         acao(s.nextInt(), s);
     }
 
@@ -37,38 +37,38 @@ public class InsertFuncionarioInterface {
     }
 
     private void inserirSemTelefone(Scanner s) throws SQLException {
-        System.out.println("\nInserir nome:");
+        System.out.println("Inserir nome:");
         f.setNome(s.nextLine());
-        System.out.println("\nInserir Endereço:");
+        System.out.println("Inserir Endereço:");
         f.setEndereco(s.nextLine());
-        System.out.println("\nInserir Salario:");
+        System.out.println("Inserir Salario:");
         f.setSalario(s.nextDouble());
-        System.out.println("\nInserir Data de Nascimento:");
+        System.out.println("Inserir Data de Nascimento:");
         f.setDataNascimento(s.nextLine());
-        System.out.println("\nInserir Data de Admissao:");
+        System.out.println("Inserir Data de Admissao:");
         f.setDataAdmissao(s.nextLine());
-        System.out.println("\nInserir função:");
+        System.out.println("Inserir função:");
         f.setFuncao(s.nextLine());
-        System.out.println("\nInserir Data de desmissão:");
+        System.out.println("Inserir Data de desmissão:");
         f.setDataDemissao(s.nextLine());
 
         fDao.inserirFuncionario(f);
     }
 
     private void inserirSemSalario(Scanner s) throws SQLException {
-        System.out.println("\nInserir nome:");
+        System.out.println("Inserir nome:");
         f.setNome(s.nextLine());
-        System.out.println("\nInserir Endereço:");
+        System.out.println("Inserir Endereço:");
         f.setEndereco(s.nextLine());
-        System.out.println("\nInserir Telefone:");
+        System.out.println("Inserir Telefone:");
         f.setTelefone(s.nextLine());
-        System.out.println("\nInserir Data de Nascimento:");
+        System.out.println("Inserir Data de Nascimento:");
         f.setDataNascimento(s.nextLine());
-        System.out.println("\nInserir Data de Admissao:");
+        System.out.println("Inserir Data de Admissao:");
         f.setDataAdmissao(s.nextLine());
-        System.out.println("\nInserir função:");
+        System.out.println("Inserir função:");
         f.setFuncao(s.nextLine());
-        System.out.println("\nInserir Data de desmissão:");
+        System.out.println("Inserir Data de desmissão:");
         f.setDataDemissao(s.nextLine());
 
         fDao.inserirFuncionario(f);
@@ -76,21 +76,21 @@ public class InsertFuncionarioInterface {
     }
 
     private void inserirFuncionario(Scanner s) throws SQLException {
-        System.out.println("\nInserir nome:");
+        System.out.println("Inserir nome:");
         f.setNome(s.nextLine());
-        System.out.println("\nInserir Endereço:");
+        System.out.println("Inserir Endereço:");
         f.setEndereco(s.nextLine());
-        System.out.println("\nInserir Telefone:");
+        System.out.println("Inserir Telefone:");
         f.setTelefone(s.nextLine());
-        System.out.println("\nInserir Salario:");
+        System.out.println("Inserir Salario:");
         f.setSalario(s.nextDouble());
-        System.out.println("\nInserir Data de Nascimento:");
+        System.out.println("Inserir Data de Nascimento:");
         f.setDataNascimento(s.nextLine());
-        System.out.println("\nInserir Data de Admissao:");
+        System.out.println("Inserir Data de Admissao:");
         f.setDataAdmissao(s.nextLine());
-        System.out.println("\nInserir função:");
+        System.out.println("Inserir função:");
         f.setFuncao(s.nextLine());
-        System.out.println("\nInserir Data de desmissão:");
+        System.out.println("Inserir Data de desmissão:");
         f.setDataDemissao(s.nextLine());
 
         fDao.inserirFuncionario(f);
