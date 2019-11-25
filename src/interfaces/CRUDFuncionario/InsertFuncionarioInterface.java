@@ -1,7 +1,6 @@
 package interfaces.CRUDFuncionario;
 
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 import dao.FuncionarioDAO;
@@ -45,13 +44,13 @@ public class InsertFuncionarioInterface {
         System.out.println("\nInserir Salario:");
         f.setSalario(s.nextDouble());
         System.out.println("\nInserir Data de Nascimento:");
-        f.setDataNascimento(LocalDateTime.parse(s.nextLine()));
+        f.setDataNascimento(s.nextLine());
         System.out.println("\nInserir Data de Admissao:");
-        f.setDataAdmissao(LocalDateTime.parse(s.nextLine()));
+        f.setDataAdmissao(s.nextLine());
         System.out.println("\nInserir função:");
         f.setFuncao(s.nextLine());
         System.out.println("\nInserir Data de desmissão:");
-        f.setDataDemissao(LocalDateTime.parse(s.nextLine()));
+        f.setDataDemissao(s.nextLine());
 
         fDao.inserirFuncionario(f);
     }
@@ -64,13 +63,13 @@ public class InsertFuncionarioInterface {
         System.out.println("\nInserir Telefone:");
         f.setTelefone(s.nextLine());
         System.out.println("\nInserir Data de Nascimento:");
-        f.setDataNascimento(LocalDateTime.parse(s.nextLine()));
+        f.setDataNascimento(s.nextLine());
         System.out.println("\nInserir Data de Admissao:");
-        f.setDataAdmissao(LocalDateTime.parse(s.nextLine()));
+        f.setDataAdmissao(s.nextLine());
         System.out.println("\nInserir função:");
         f.setFuncao(s.nextLine());
         System.out.println("\nInserir Data de desmissão:");
-        f.setDataDemissao(LocalDateTime.parse(s.nextLine()));
+        f.setDataDemissao(s.nextLine());
 
         fDao.inserirFuncionario(f);
 
@@ -86,13 +85,13 @@ public class InsertFuncionarioInterface {
         System.out.println("\nInserir Salario:");
         f.setSalario(s.nextDouble());
         System.out.println("\nInserir Data de Nascimento:");
-        f.setDataNascimento(LocalDateTime.parse(s.nextLine()));
+        f.setDataNascimento(s.nextLine());
         System.out.println("\nInserir Data de Admissao:");
-        f.setDataAdmissao(LocalDateTime.parse(s.nextLine()));
+        f.setDataAdmissao(s.nextLine());
         System.out.println("\nInserir função:");
         f.setFuncao(s.nextLine());
         System.out.println("\nInserir Data de desmissão:");
-        f.setDataDemissao(LocalDateTime.parse(s.nextLine()));
+        f.setDataDemissao(s.nextLine());
 
         fDao.inserirFuncionario(f);
     }

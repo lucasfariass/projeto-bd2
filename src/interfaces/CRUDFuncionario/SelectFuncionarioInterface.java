@@ -15,6 +15,7 @@ public class SelectFuncionarioInterface {
         System.out.println("1 - Selecionar tudo\n");
         System.out.println("2 - Selecionar pela descrição\n");
         System.out.println("3 - Selecionar dados pelo mes e ano\n");
+        System.out.println("4 - Selecionar salario pelo mes e ano c\n");
         opcao(s.nextInt(), s);
 
     }
@@ -31,13 +32,16 @@ public class SelectFuncionarioInterface {
         case 3:
             selectDadosByMeseAno(s);
             break;
+        case 4:
+            selectDadosByMeseAnoSalario(s);
+            break;
         default:
             break;
         }
     }
 
     private void selectDadosByMeseAno(Scanner s) throws SQLException {
-        String mes, ano = null;
+        String mes, ano;
         System.out.println("\nDigite o mes:");
         mes = s.nextLine();
         System.out.println("\nDigite o ano:");
@@ -46,4 +50,13 @@ public class SelectFuncionarioInterface {
         fDao.selectDadosByMeseAno(mes, ano);
     }
 
+    private void selectDadosByMeseAnoSalario(Scanner s) throws SQLException {
+        String mes, ano;
+        System.out.println("\nDigite o mes:");
+        mes = s.nextLine();
+        System.out.println("\nDigite o ano:");
+        ano = s.nextLine();
+
+        fDao.selectDadosByMeseAnoSalario(mes, ano);
+    }
 }

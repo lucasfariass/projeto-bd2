@@ -1,7 +1,6 @@
 package interfaces.CRUDFuncionario;
 
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 import dao.FuncionarioDAO;
@@ -50,7 +49,7 @@ public class UpdateFuncionarioInterface {
         System.out.println("\nDigite a matricula:");
         f.setMatricula(s.nextInt());
         System.out.println("\nDigite a nova data de demissão:");
-        f.setDataDemissao(LocalDateTime.parse(s.nextLine()));
+        f.setDataDemissao(s.nextLine());
 
         fDao.updateDataDemissaoPorMatricula(f);
 

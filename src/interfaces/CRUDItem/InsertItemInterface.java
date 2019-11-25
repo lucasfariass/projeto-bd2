@@ -1,7 +1,6 @@
 package interfaces.CRUDItem;
 
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 import dao.ItemDAO;
@@ -45,7 +44,7 @@ public class InsertItemInterface {
         System.out.println("\nDigite o preço do fornecedor: ");
         i.setPrecoFornecedor(s.nextDouble());
         System.out.println("\nDigite a data de validade: ");
-        i.setDataValidade(LocalDateTime.parse(s.nextLine()));
+        i.setDataValidade(s.nextLine());
         System.out.println("\nDigite a quantidade de estoque:");
         i.setQtdEstoque(s.nextInt());
 
@@ -77,7 +76,7 @@ public class InsertItemInterface {
         System.out.println("\nDigite o preço da loja: ");
         i.setPrecoLoja(s.nextDouble());
         System.out.println("\nDigite a data de validade: ");
-        i.setDataValidade(LocalDateTime.parse(s.nextLine()));
+        i.setDataValidade(s.nextLine());
         System.out.println("\nDigite a quantidade de estoque:");
         i.setQtdEstoque(s.nextInt());
 

@@ -82,10 +82,10 @@ public class VendaItemDAO {
         query.close();
     }
 
-    public void deleteVendaItem(VendaItem v) throws SQLException {
+    public void deleteVendaItem(Integer notaFiscal) throws SQLException {
         String sql = "DELETE FROM venda_item v WHERE v.nota_fiscal = ?";
         PreparedStatement query = con.prepareStatement(sql);
-        query.setInt(1, v.getNotaFiscal());
+        query.setInt(1, notaFiscal);
         query.execute();
         query.close();
     }
@@ -113,7 +113,7 @@ public class VendaItemDAO {
         query.close();
     }
 
-    public void selectByMesAno(String descricao, String mes, String ano) throws SQLException {
+    public void selectByDescricaoMesAno(String descricao, String mes, String ano) throws SQLException {
         String sql = "SELECT * FROM venda_item v, item i WHERE i.descricao = ? AND v.ano = ? AND v.mes = ? AND v.item_codigo = i.codigo";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, descricao);

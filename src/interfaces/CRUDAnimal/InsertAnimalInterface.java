@@ -1,7 +1,6 @@
 package interfaces.CRUDAnimal;
 
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 import dao.AnimalDAO;
 import entidades.Animal;
@@ -53,7 +52,7 @@ public class InsertAnimalInterface {
         System.out.println("\nDigite a altura: ");
         a.setAltura(s.nextDouble());
         System.out.println("\nDigite a data da ultima medicacao");
-        a.setDataUltimaMedicacao(LocalDateTime.parse(s.nextLine()));
+        a.setDataUltimaMedicacao(s.nextLine());
         System.out.println("\nDigite a raca:");
         a.setRaca(s.nextLine());
         System.out.println("\nDigite o preço de compra:");
@@ -76,11 +75,11 @@ public class InsertAnimalInterface {
         System.out.println("\nDigite a altura: ");
         a.setAltura(s.nextDouble());
         System.out.println("\nDigite a data da ultima medicacao");
-        a.setDataUltimaMedicacao(LocalDateTime.parse(s.nextLine()));
+        a.setDataUltimaMedicacao(s.nextLine());
         System.out.println("\nDigite a raca:");
         a.setRaca(s.nextLine());
         System.out.println("\nDigite a data de nascimento");
-        a.setDataNascimento(LocalDateTime.parse(s.nextLine()));
+        a.setDataNascimento(s.nextLine());
 
         try {
             aDao.inserirSemPrecoVendaPrecoCompra(a);
@@ -97,13 +96,13 @@ public class InsertAnimalInterface {
         System.out.println("\nDigite a altura: ");
         a.setAltura(s.nextDouble());
         System.out.println("\nDigite a data da ultima medicacao");
-        a.setDataUltimaMedicacao(LocalDateTime.parse(s.nextLine()));
+        a.setDataUltimaMedicacao(s.nextLine());
         System.out.println("\nDigite a raca:");
         a.setRaca(s.nextLine());
         System.out.println("\nDigite o preço de compra:");
         a.setPrecoCompra(s.nextDouble());
         System.out.println("\nDigite a data de nascimento");
-        a.setDataNascimento(LocalDateTime.parse(s.nextLine()));
+        a.setDataNascimento(s.nextLine());
 
         try {
             aDao.inserirSemPrecoVenda(a);
@@ -126,7 +125,7 @@ public class InsertAnimalInterface {
         System.out.println("\nDigite o preço de venda:");
         a.setPrecoVenda(s.nextDouble());
         System.out.println("\nDigite a data de nascimento");
-        a.setDataNascimento(LocalDateTime.parse(s.nextLine()));
+        a.setDataNascimento(s.nextLine());
 
         try {
             aDao.inserirSemPesoAlturaDataUltMed(a);
@@ -143,7 +142,7 @@ public class InsertAnimalInterface {
         System.out.println("\nDigite a altura: ");
         a.setAltura(s.nextDouble());
         System.out.println("\nDigite a data da ultima medicacao");
-        a.setDataUltimaMedicacao(LocalDateTime.parse(s.nextLine()));
+        a.setDataUltimaMedicacao(s.nextLine());
         System.out.println("\nDigite a raca:");
         a.setRaca(s.nextLine());
         System.out.println("\nDigite o preço de compra:");
@@ -151,7 +150,7 @@ public class InsertAnimalInterface {
         System.out.println("\nDigite o preço de venda:");
         a.setPrecoVenda(s.nextDouble());
         System.out.println("\nDigite a data de nascimento");
-        a.setDataNascimento(LocalDateTime.parse(s.nextLine()));
+        a.setDataNascimento(s.nextLine());
 
         try {
             aDao.inserirAnimal(a);

@@ -1,7 +1,6 @@
 package interfaces.CRUDAnimal;
 
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 import dao.AnimalDAO;
@@ -93,7 +92,7 @@ public class UpdateAnimalInterface {
         System.out.println("\nDigite a nova altura:");
         a.setAltura(s.nextDouble());
         System.out.println("\nDigite nova data da ultima medicação:");
-        a.setDataUltimaMedicacao(LocalDateTime.parse(s.nextLine()));
+        a.setDataUltimaMedicacao(s.nextLine());
 
         try {
             aDao.updateAlturaDataUltMed(a);
@@ -110,7 +109,7 @@ public class UpdateAnimalInterface {
         System.out.println("\nDigite o novo peso:");
         a.setPeso(s.nextDouble());
         System.out.println("\nDigite nova data da ultima medicação:");
-        a.setDataUltimaMedicacao(LocalDateTime.parse(s.nextLine()));
+        a.setDataUltimaMedicacao(s.nextLine());
 
         try {
             aDao.updatePesoAlturaDataUltMed(a);

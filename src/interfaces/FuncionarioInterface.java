@@ -3,7 +3,9 @@ package interfaces;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import interfaces.CRUDFuncionario.DeleteFuncionarioInterface;
 import interfaces.CRUDFuncionario.InsertFuncionarioInterface;
+import interfaces.CRUDFuncionario.SelectFuncionarioInterface;
 import interfaces.CRUDFuncionario.UpdateFuncionarioInterface;
 
 public class FuncionarioInterface {
@@ -26,8 +28,10 @@ public class FuncionarioInterface {
             new UpdateFuncionarioInterface(s);
             break;
         case 3:
+            new DeleteFuncionarioInterface(s);
             break;
         case 4:
+            new SelectFuncionarioInterface(s);
             break;
         default:
             break;

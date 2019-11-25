@@ -82,10 +82,10 @@ public class VendaAnimalDAO {
         query.close();
     }
 
-    public void deleteVendaAnimal(VendaAnimal v) throws SQLException {
+    public void deleteVendaAnimal(Integer notaFiscal) throws SQLException {
         String sql = "DELETE FROM venda_animal WHERE nota_fiscal = ?";
         PreparedStatement query = con.prepareStatement(sql);
-        query.setInt(1, v.getNotaFiscal());
+        query.setInt(1, notaFiscal);
         query.execute();
         query.close();
     }

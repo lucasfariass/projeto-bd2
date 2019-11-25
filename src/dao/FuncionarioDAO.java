@@ -127,12 +127,25 @@ public class FuncionarioDAO {
         query.close();
     }
 
-    // BOTAR A FUNCAO AQUI
     public void selectDadosByMeseAno(String mes, String ano) throws SQLException {
-        String sql = "SELECT f.matriula, f.nome, f.salario FROM funcionario f WHERE";
+        String sql = "SELECT f.matricula, f.nome, (va.comissao_animal + vi.comissao_item + f.salario) AS salario_com_comissao FROM funcionario f, venda_animal va, venda_item vi WHERE va.mes = ? AND va.ano = ? AND vi.mes = ? AND vi.ano = ? LIMIT 1";
         PreparedStatement query = con.prepareStatement(sql);
+        query.setString(1, mes);
+        query.setString(2, ano);
+        query.setString(3, mes);
+        query.setString(4, ano);
         query.execute();
         query.close();
     }
 
+    public void selectDadosByMeseAnoSalario(String mes, String ano) throws SQLException {
+        String sql = "SELECT f.matricula, f.nome, (va.comissao_animal + vi.comissao_item + f.salario) AS salario_com_comissao FROM funcionario f, venda_animal va, venda_item vi WHERE va.mes = ? AND va.ano = ? AND vi.mes = ? AND vi.ano = ?";
+        PreparedStatement query = con.prepareStatement(sql);
+        query.setString(1, mes);
+        query.setString(2, ano);
+        query.setString(3, mes);
+        query.setString(4, ano);
+        query.execute();
+        query.close();
+    }
 }
