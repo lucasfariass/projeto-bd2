@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Conecta {
 	
-	private static final String URL = "jdbc:postgresql://localhost:5432/pet_shop";
+	private static final String URL = "jdbc:postgresql://localhost:5432/petshop";
 	private static final String USER = "postgres";
 	private static final String PASS = "postgres";
 	

@@ -39,7 +39,7 @@ public class InsertFuncionarioInterface {
     private void inserirSemTelefone(Scanner s) throws SQLException {
         System.out.println("Inserir nome:");
         f.setNome(s.nextLine());
-        System.out.println("Inserir Endere√ßo:");
+        System.out.println("Inserir EndereÁo:");
         f.setEndereco(s.nextLine());
         System.out.println("Inserir Salario:");
         f.setSalario(s.nextDouble());
@@ -47,10 +47,8 @@ public class InsertFuncionarioInterface {
         f.setDataNascimento(s.nextLine());
         System.out.println("Inserir Data de Admissao:");
         f.setDataAdmissao(s.nextLine());
-        System.out.println("Inserir fun√ß√£o:");
+        System.out.println("Inserir funÁ„o:");
         f.setFuncao(s.nextLine());
-        System.out.println("Inserir Data de desmiss√£o:");
-        f.setDataDemissao(s.nextLine());
 
         fDao.inserirFuncionario(f);
     }
@@ -58,7 +56,7 @@ public class InsertFuncionarioInterface {
     private void inserirSemSalario(Scanner s) throws SQLException {
         System.out.println("Inserir nome:");
         f.setNome(s.nextLine());
-        System.out.println("Inserir Endere√ßo:");
+        System.out.println("Inserir EndereÁo:");
         f.setEndereco(s.nextLine());
         System.out.println("Inserir Telefone:");
         f.setTelefone(s.nextLine());
@@ -66,19 +64,16 @@ public class InsertFuncionarioInterface {
         f.setDataNascimento(s.nextLine());
         System.out.println("Inserir Data de Admissao:");
         f.setDataAdmissao(s.nextLine());
-        System.out.println("Inserir fun√ß√£o:");
+        System.out.println("Inserir funÁ„o:");
         f.setFuncao(s.nextLine());
-        System.out.println("Inserir Data de desmiss√£o:");
-        f.setDataDemissao(s.nextLine());
 
         fDao.inserirFuncionario(f);
-
     }
 
     private void inserirFuncionario(Scanner s) throws SQLException {
         System.out.println("Inserir nome:");
         f.setNome(s.nextLine());
-        System.out.println("Inserir Endere√ßo:");
+        System.out.println("Inserir EndereÁo:");
         f.setEndereco(s.nextLine());
         System.out.println("Inserir Telefone:");
         f.setTelefone(s.nextLine());
@@ -88,10 +83,8 @@ public class InsertFuncionarioInterface {
         f.setDataNascimento(s.nextLine());
         System.out.println("Inserir Data de Admissao:");
         f.setDataAdmissao(s.nextLine());
-        System.out.println("Inserir fun√ß√£o:");
+        System.out.println("Inserir funÁ„o:");
         f.setFuncao(s.nextLine());
-        System.out.println("Inserir Data de desmiss√£o:");
-        f.setDataDemissao(s.nextLine());
 
         fDao.inserirFuncionario(f);
     }

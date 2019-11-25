@@ -3,6 +3,7 @@ package app;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import conexao.Conecta;
 import interfaces.AnimalInterface;
 import interfaces.FuncionarioInterface;
 import interfaces.ItemInterface;
@@ -12,13 +13,13 @@ import interfaces.VendaItemInterface;
 public class Main {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		// Conecta con = new Conecta();
+		Conecta con = new Conecta();
 
-		// try {
-		// con.criarConexao();
-		// } catch (Exception e) {
-		// System.out.println(e.getMessage());
-		// }
+		try {
+			con.criarConexao();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 
 		Scanner s = new Scanner(System.in);
 		System.out.println("Digite 1 para mexer na tabela Animal");

@@ -17,44 +17,41 @@ public class FuncionarioDAO {
     }
 
     public void inserirFuncionario(Funcionario f) throws SQLException {
-        String sql = "INSERT INTO funcionario(nome, cpf, endereco, telefone, salario, data_nascimento, data_admissao, funcao, data_demissao) VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO funcionario(nome, cpf, endereco, telefone, salario, data_nascimento, data_admissao, funcao) VALUES(?,?,?,?,?,?,?,?)";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, f.getNome());
         query.setString(2, f.getEndereco());
         query.setString(3, f.getTelefone());
         query.setDouble(4, f.getSalario());
-        query.setObject(5, f.getDataNascimento(), Types.TIMESTAMP);
-        query.setObject(6, f.getDataAdmissao(), Types.TIMESTAMP);
+        query.setObject(5, f.getDataNascimento());
+        query.setObject(6, f.getDataAdmissao());
         query.setString(7, f.getFuncao());
-        query.setObject(6, f.getDataDemissao(), Types.TIMESTAMP);
         query.execute();
         query.close();
     }
 
     public void inserirSemSalario(Funcionario f) throws SQLException {
-        String sql = "INSERT INTO funcionario(nome, cpf, endereco, telefone, data_nascimento, data_admissao, funcao, data_demissao) VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO funcionario(nome, cpf, endereco, telefone, data_nascimento, data_admissao, funcao) VALUES(?,?,?,?,?,?,?,?)";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, f.getNome());
         query.setString(2, f.getEndereco());
         query.setString(3, f.getTelefone());
-        query.setObject(4, f.getDataNascimento(), Types.TIMESTAMP);
-        query.setObject(5, f.getDataAdmissao(), Types.TIMESTAMP);
+        query.setObject(4, f.getDataNascimento());
+        query.setObject(5, f.getDataAdmissao());
         query.setString(6, f.getFuncao());
-        query.setObject(7, f.getDataDemissao(), Types.TIMESTAMP);
         query.execute();
         query.close();
     }
 
     public void inserirSemTelefone(Funcionario f) throws SQLException {
-        String sql = "INSERT INTO funcionario(nome, cpf, endereco, salario, data_nascimento, data_admissao, funcao, data_demissao) VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO funcionario(nome, cpf, endereco, salario, data_nascimento, data_admissao, funcao) VALUES(?,?,?,?,?,?,?,?)";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, f.getNome());
         query.setString(2, f.getEndereco());
         query.setDouble(3, f.getSalario());
-        query.setObject(4, f.getDataNascimento(), Types.TIMESTAMP);
-        query.setObject(5, f.getDataAdmissao(), Types.TIMESTAMP);
+        query.setObject(4, f.getDataNascimento());
+        query.setObject(5, f.getDataAdmissao());
         query.setString(6, f.getFuncao());
-        query.setObject(7, f.getDataDemissao(), Types.TIMESTAMP);
         query.execute();
         query.close();
     }
