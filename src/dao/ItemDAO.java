@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
@@ -102,7 +103,7 @@ public class ItemDAO {
     public void selectAll() throws SQLException {
         String sql = "SELECT * FROM item";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -110,7 +111,7 @@ public class ItemDAO {
         String sql = "SELECT * FROM item i WHERE i.descricao = ?";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, descricao);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -118,21 +119,27 @@ public class ItemDAO {
         String sql = "SELECT * FROM item i WHERE i.tipo = ?";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, tipo);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
     public void selectTotalizacao() throws SQLException {
         String sql = "SELECT (i.preco_loja - i.preco-fornecedor) as total_do_tipo, i.tipo, i.quantidade FROM item i GROUP BY i.tipo, i.quantidade";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
     public void selectLucro() throws SQLException {
         String sql = "SELECT (i.preco_loja - i.preco_fornecedor) as lucro FROM Funcionario";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
+    
+    private void exibirResultados(ResultSet rs) throws SQLException {
+		while (rs.next()) {
+			System.out.println(rs.getString("descricao"));
+		}
+	}
 }

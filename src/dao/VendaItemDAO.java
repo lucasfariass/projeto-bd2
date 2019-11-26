@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import conexao.Conecta;
@@ -93,7 +94,7 @@ public class VendaItemDAO {
     public void selectAll() throws SQLException {
         String sql = "SELECT * FROM venda_item";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -101,7 +102,7 @@ public class VendaItemDAO {
         String sql = "SELECT * FROM venda_item v, item i WHERE i.descricao = ? AND v.item_codigo = i.codigo";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, descricao);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -109,7 +110,7 @@ public class VendaItemDAO {
         String sql = "SELECT * FROM venda_item v, funcionario f WHERE v.matricula_funcionario = f.matricula AND f.nome = ?";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, nome);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -119,21 +120,21 @@ public class VendaItemDAO {
         query.setString(1, descricao);
         query.setString(2, ano);
         query.setString(3, mes);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
     public void selectMatriculaCodigoEVendas() throws SQLException {
         String sql = "SELECT f.matricula, i.codigo, v FROM venda_item v, funcionario f, item i WHERE v.item_codigo = i.codigo AND v.matricula_funcionario =  f.matricula  GROUP BY i.codigo";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
     public void selectTotalizacaoEQuantidade() throws SQLException {
         String sql = "SELECT f.matricula, i.tipo, count(*), sum(v.valor_final) - sum(i.preco_fornecedor) as total FROM venda_item v, item i, funcionario f WHERE v.item_codigo = i.codigo AND v.matricula_funcionario = f.matricula GROUP BY f.matricula";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -143,7 +144,13 @@ public class VendaItemDAO {
         query.setString(1, nome);
         query.setString(2, mes);
         query.setString(3, ano);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
+    
+    private void exibirResultados(ResultSet rs) throws SQLException {
+		while (rs.next()) {
+			System.out.println(rs.getString("nota_fiscal"));
+		}
+	}
 }

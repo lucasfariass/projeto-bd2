@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import conexao.Conecta;
@@ -93,7 +94,7 @@ public class VendaAnimalDAO {
     public void selectAll() throws SQLException {
         String sql = "SELECT * FROM venda_animal";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -101,14 +102,14 @@ public class VendaAnimalDAO {
         String sql = "SELECT v FROM venda_animal v, Animal a WHERE v.tipo = ? AND a.Registro = v.registro_animal";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, tipo);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
     public void selectByNomeVendedor(String nome) throws SQLException {
         String sql = "SELECT v FROM venda_animal v, funcionario f WHERE f.matricula = ? AND f.matricula = v.matricula_funcionario";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -118,7 +119,7 @@ public class VendaAnimalDAO {
         query.setString(1, mes);
         query.setString(2, ano);
         query.setString(3, tipo);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -127,14 +128,14 @@ public class VendaAnimalDAO {
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, tipo);
         query.setString(2, nome);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
     public void selectTotalizacaoFuncionarioETipoAnimal() throws SQLException {
         String sql = "SELECT f.matricula, a.tipo, v.valor_final FROM funcionario f, animal a, venda_animal v WHERE v.registro_animal = a.registro and a.matricula_funcionario = f.matricula GROUP BY f.matricula, a.tipo";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -145,7 +146,13 @@ public class VendaAnimalDAO {
         query.setString(1, nome);
         query.setString(2, mes);
         query.setString(3, ano);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
+    
+    private void exibirResultados(ResultSet rs) throws SQLException {
+		while (rs.next()) {
+			System.out.println(rs.getString("nota_fiscal"));
+		}
+	}
 }

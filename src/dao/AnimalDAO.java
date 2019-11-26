@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
@@ -180,7 +181,7 @@ public class AnimalDAO {
     public void selectAll() throws SQLException {
         String sql = "SELECT * FROM animal";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -188,7 +189,7 @@ public class AnimalDAO {
         String sql = "SELECT * FROM animal a Where a.tipo = ?";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, tipo);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
@@ -196,22 +197,28 @@ public class AnimalDAO {
         String sql = "SELECT * FROM animal a Where a.preco_venda <= ?";
         PreparedStatement query = con.prepareStatement(sql);
         query.setDouble(1, preco);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
     public void selectTotalizacao() throws SQLException {
         String sql = "SELECT count(*), MAX(a.preco_venda), MIN(a.preco_venda) FROM animal a GROUP BY a.tipo";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
 
     public void selectLucro() throws SQLException {
         String sql = "SELECT a.preco_compra - a.preco_venda FROM animal a";
         PreparedStatement query = con.prepareStatement(sql);
-        query.execute();
+        exibirResultados(query.executeQuery());
         query.close();
     }
+    
+    private void exibirResultados(ResultSet rs) throws SQLException {
+		while (rs.next()) {
+			System.out.println(rs.getString("tipo"));
+		}
+	}
 
 }
