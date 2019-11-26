@@ -23,14 +23,14 @@ public class ItemDAO {
         query.setString(2, i.getTipo());
         query.setDouble(3, i.getPrecoFornecedor());
         query.setDouble(4, i.getPrecoLoja());
-        query.setObject(5, i.getDataValidade(), Types.TIMESTAMP);
+        query.setString(5, i.getDataValidade());
         query.setInt(6, i.getQtdEstoque());
         query.execute();
         query.close();
     }
 
     public void inserirSemValidade(Item i) throws SQLException {
-        String sql = "INSERT INTO item(descricao, tipo, preco_fornecedor, preco_loja, qtd_estoque) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO item(descricao, tipo, preco_fornecedor, preco_loja, qtd_estoque) VALUES(?,?,?,?,?)";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, i.getDescricao());
         query.setString(2, i.getTipo());

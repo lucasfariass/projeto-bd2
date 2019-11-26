@@ -11,7 +11,7 @@ import interfaces.CRUDVendaItem.UpdateVendaItemInterface;
 public class VendaItemInterface {
 
     public VendaItemInterface(Scanner s) throws ClassNotFoundException, SQLException {
-        System.out.println("Selecione a sua aÃ§Ã£o:");
+        System.out.println("Selecione a sua ação:");
         System.out.println("1: Inserir");
         System.out.println("2: Atualizar");
         System.out.println("3: Deletar");

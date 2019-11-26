@@ -19,14 +19,14 @@ public class AnimalDAO {
     public void inserirAnimal(Animal a) throws SQLException {
         String sql = "INSERT INTO animal(tipo, peso, altura, data_ultima_medicacao, raca, preco_compra, preco_venda, data_nascimento) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement query = con.prepareStatement(sql);
-        query.setLong(1, a.getRegistro());
+        query.setString(1, a.getTipo());
         query.setDouble(2, a.getPeso());
         query.setDouble(3, a.getAltura());
-        query.setObject(4, a.getDataUltimaMedicacao(), Types.TIMESTAMP);
+        query.setString(4, a.getDataUltimaMedicacao());
         query.setString(5, a.getRaca());
         query.setDouble(6, a.getPrecoCompra());
         query.setDouble(7, a.getPrecoVenda());
-        query.setObject(8, a.getDataNascimento(), Types.TIMESTAMP);
+        query.setString(8, a.getDataNascimento());
         query.execute();
         query.close();
     }
@@ -34,11 +34,11 @@ public class AnimalDAO {
     public void inserirSemPesoAlturaDataUltMed(Animal a) throws SQLException {
         String sql = "INSERT INTO animal(tipo, raca, preco_compra, preco_venda, data_nascimento) VALUES (?,?,?,?,?)";
         PreparedStatement query = con.prepareStatement(sql);
-        query.setLong(1, a.getRegistro());
+        query.setString(1, a.getTipo());
         query.setString(2, a.getRaca());
         query.setDouble(3, a.getPrecoCompra());
         query.setDouble(4, a.getPrecoVenda());
-        query.setObject(8, a.getDataNascimento(), Types.TIMESTAMP);
+        query.setString(5, a.getDataNascimento());
         query.execute();
         query.close();
     }
@@ -46,26 +46,26 @@ public class AnimalDAO {
     public void inserirSemPrecoVenda(Animal a) throws SQLException {
         String sql = "INSERT INTO animal(tipo, peso, altura, data_ultima_medicacao, raca, preco_compra, data_nascimento) VALUES (?,?,?,?,?,?,?)";
         PreparedStatement query = con.prepareStatement(sql);
-        query.setLong(1, a.getRegistro());
+        query.setString(1, a.getTipo());
         query.setDouble(2, a.getPeso());
         query.setDouble(3, a.getAltura());
-        query.setObject(4, a.getDataUltimaMedicacao(), Types.TIMESTAMP);
+        query.setString(4, a.getDataUltimaMedicacao());
         query.setString(5, a.getRaca());
         query.setDouble(6, a.getPrecoCompra());
-        query.setObject(8, a.getDataNascimento(), Types.TIMESTAMP);
+        query.setString(7, a.getDataNascimento());
         query.execute();
         query.close();
     }
 
     public void inserirSemPrecoVendaPrecoCompra(Animal a) throws SQLException {
-        String sql = "INSERT INTO animal(tipo, peso, altura, data_ultima_medicacao, raca, data_nascimento) VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO animal(tipo, peso, altura, data_ultima_medicacao, raca, data_nascimento) VALUES (?,?,?,?,?,?)";
         PreparedStatement query = con.prepareStatement(sql);
-        query.setLong(1, a.getRegistro());
+        query.setString(1, a.getTipo());
         query.setDouble(2, a.getPeso());
         query.setDouble(3, a.getAltura());
-        query.setObject(4, a.getDataUltimaMedicacao(), Types.TIMESTAMP);
+        query.setString(4, a.getDataUltimaMedicacao());
         query.setString(5, a.getRaca());
-        query.setObject(8, a.getDataNascimento(), Types.TIMESTAMP);
+        query.setString(6, a.getDataNascimento());
         query.execute();
         query.close();
     }
@@ -73,10 +73,10 @@ public class AnimalDAO {
     public void inserirSemDataNasc(Animal a) throws SQLException {
         String sql = "INSERT INTO animal(tipo, peso, altura, data_ultima_medicacao, raca, preco_compra, preco_venda) VALUES (?,?,?,?,?,?,?)";
         PreparedStatement query = con.prepareStatement(sql);
-        query.setLong(1, a.getRegistro());
+        query.setString(1, a.getTipo());
         query.setDouble(2, a.getPeso());
         query.setDouble(3, a.getAltura());
-        query.setObject(4, a.getDataUltimaMedicacao(), Types.TIMESTAMP);
+        query.setString(4, a.getDataUltimaMedicacao());
         query.setString(5, a.getRaca());
         query.setDouble(6, a.getPrecoCompra());
         query.setDouble(7, a.getPrecoVenda());
@@ -89,7 +89,7 @@ public class AnimalDAO {
         PreparedStatement query = con.prepareStatement(sql);
         query.setDouble(1, a.getPeso());
         query.setDouble(2, a.getAltura());
-        query.setObject(3, a.getDataUltimaMedicacao(), Types.TIMESTAMP);
+        query.setString(3, a.getDataUltimaMedicacao());
         query.setLong(4, a.getRegistro());
         query.execute();
         query.close();
@@ -99,7 +99,7 @@ public class AnimalDAO {
         String sql = "UPDATE animal SET altura = ?, data_ultima_medicacao = ? WHERE registro = ?";
         PreparedStatement query = con.prepareStatement(sql);
         query.setDouble(1, a.getAltura());
-        query.setObject(2, a.getDataUltimaMedicacao(), Types.TIMESTAMP);
+        query.setString(2, a.getDataUltimaMedicacao());
         query.setLong(3, a.getRegistro());
         query.execute();
         query.close();

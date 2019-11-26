@@ -10,6 +10,9 @@ public class UpdateFuncionarioInterface {
 
     private FuncionarioDAO fDao;
     private Funcionario f = new Funcionario();
+    private Scanner sInt;
+   	private Scanner sLine;
+   	private Scanner sDouble;
 
     public UpdateFuncionarioInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.fDao = new FuncionarioDAO();
@@ -24,70 +27,77 @@ public class UpdateFuncionarioInterface {
     }
 
     private void opcao(int nextInt, Scanner s) throws SQLException {
+    	iniciarScanners();
         switch (nextInt) {
         case 1:
-            updateNomePorMatricula(s);
+            updateNomePorMatricula();
             break;
         case 2:
-            updateNomePorCPF(s);
+            updateNomePorCPF();
             break;
         case 3:
-            updateEnderecoPorMatricula(s);
+            updateEnderecoPorMatricula();
             break;
         case 4:
-            updateFuncaoPorMatricula(s);
+            updateFuncaoPorMatricula();
             break;
         case 5:
-            updateDataDemissaoPorMatricula(s);
+            updateDataDemissaoPorMatricula();
             break;
         default:
             break;
         }
     }
 
-    private void updateDataDemissaoPorMatricula(Scanner s) throws SQLException {
+    private void updateDataDemissaoPorMatricula() throws SQLException {
         System.out.println("Digite a matricula:");
-        f.setMatricula(s.nextInt());
+        f.setMatricula(sInt.nextInt());
         System.out.println("Digite a nova data de demissão:");
-        f.setDataDemissao(s.nextLine());
+        f.setDataDemissao(sLine.nextLine());
 
         fDao.updateDataDemissaoPorMatricula(f);
 
     }
 
-    private void updateFuncaoPorMatricula(Scanner s) throws SQLException {
+    private void updateFuncaoPorMatricula() throws SQLException {
         System.out.println("Digite a matricula:");
-        f.setMatricula(s.nextInt());
+        f.setMatricula(sInt.nextInt());
         System.out.println("Digite a nova função");
-        f.setFuncao(s.nextLine());
+        f.setFuncao(sLine.nextLine());
 
         fDao.updateFuncaoPorMatricula(f);
     }
 
-    private void updateEnderecoPorMatricula(Scanner s) throws SQLException {
+    private void updateEnderecoPorMatricula() throws SQLException {
         System.out.println("Digite a matricula:");
-        f.setMatricula(s.nextInt());
+        f.setMatricula(sInt.nextInt());
         System.out.println("Digite o novo endereço");
-        f.setEndereco(s.nextLine());
+        f.setEndereco(sLine.nextLine());
 
         fDao.updateEnderecoPorMatricula(f);
     }
 
-    private void updateNomePorCPF(Scanner s) throws SQLException {
+    private void updateNomePorCPF() throws SQLException {
         System.out.println("Digite a CPF:");
-        f.setCpf(s.nextLine());
+        f.setCpf(sLine.nextLine());
         System.out.println("Digite o novo nome:");
-        f.setNome(s.nextLine());
+        f.setNome(sLine.nextLine());
 
         fDao.updateNomePorCPF(f);
     }
 
-    private void updateNomePorMatricula(Scanner s) throws SQLException {
+    private void updateNomePorMatricula() throws SQLException {
         System.out.println("Digite a matricula:");
-        f.setMatricula(s.nextInt());
+        f.setMatricula(sInt.nextInt());
         System.out.println("Digite o nome:");
-        f.setNome(s.nextLine());
+        f.setNome(sLine.nextLine());
 
         fDao.updateNomePorMatricula(f);
+    }
+    
+    private void iniciarScanners() {
+    	sInt = new Scanner(System.in);
+    	sLine = new Scanner(System.in);
+    	sDouble = new Scanner(System.in);
     }
 }

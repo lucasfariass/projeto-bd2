@@ -8,6 +8,9 @@ import entidades.Animal;
 
 public class UpdateAnimalInterface {
     private AnimalDAO aDao = null;
+    private Scanner sInt;
+	private Scanner sLine;
+	private Scanner sDouble;
     private Animal a = new Animal();
 
     public UpdateAnimalInterface(Scanner s) throws ClassNotFoundException, SQLException {
@@ -22,34 +25,35 @@ public class UpdateAnimalInterface {
     }
 
     private void opcao(int nextInt, Scanner s) {
+    	iniciarScanners();
         switch (nextInt) {
         case 1:
-            updatePesoAlturaDataUltMed(s);
+            updatePesoAlturaDataUltMed();
             break;
         case 2:
-            updateAlturaDataUltMed(s);
+            updateAlturaDataUltMed();
             break;
         case 3:
-            updatePrecoVenda(s);
+            updatePrecoVenda();
             break;
         case 4:
-            updatePrecoCompra(s);
+            updatePrecoCompra();
             break;
         case 5:
-            updatePrecoVendaPrecoVenda(s);
+            updatePrecoVendaPrecoVenda();
             break;
         default:
             break;
         }
     }
 
-    private void updatePrecoVendaPrecoVenda(Scanner s) {
+    private void updatePrecoVendaPrecoVenda() {
         System.out.println("Digite o registro do animal:");
-        a.setRegistro(s.nextInt());
+        a.setRegistro(sInt.nextInt());
         System.out.println("Digite o novo preço de compra:");
-        a.setPrecoCompra(s.nextDouble());
+        a.setPrecoCompra(sDouble.nextDouble());
         System.out.println("Digite o novo preço de venda:");
-        a.setPrecoVenda(s.nextDouble());
+        a.setPrecoVenda(sDouble.nextDouble());
 
         try {
             aDao.updatePrecoVendaPrecoCompra(a);
@@ -58,12 +62,12 @@ public class UpdateAnimalInterface {
         }
     }
 
-    private void updatePrecoCompra(Scanner s) {
+    private void updatePrecoCompra() {
         Animal a = new Animal();
         System.out.println("Digite o registro do animal:");
-        a.setRegistro(s.nextInt());
+        a.setRegistro(sInt.nextInt());
         System.out.println("Digite o novo preço de compra:");
-        a.setPrecoCompra(s.nextDouble());
+        a.setPrecoCompra(sDouble.nextDouble());
 
         try {
             aDao.updatePrecoCompra(a);
@@ -73,11 +77,11 @@ public class UpdateAnimalInterface {
 
     }
 
-    private void updatePrecoVenda(Scanner s) {
+    private void updatePrecoVenda() {
         System.out.println("Digite o registro do animal:");
-        a.setRegistro(s.nextInt());
+        a.setRegistro(sInt.nextInt());
         System.out.println("Digite o novo preço de venda:");
-        a.setPrecoVenda(s.nextDouble());
+        a.setPrecoVenda(sDouble.nextDouble());
 
         try {
             aDao.updatePrecoVenda(a);
@@ -86,13 +90,13 @@ public class UpdateAnimalInterface {
         }
     }
 
-    private void updateAlturaDataUltMed(Scanner s) {
+    private void updateAlturaDataUltMed() {
         System.out.println("Digite o registro do animal:");
-        a.setRegistro(s.nextInt());
+        a.setRegistro(sInt.nextInt());
         System.out.println("Digite a nova altura:");
-        a.setAltura(s.nextDouble());
+        a.setAltura(sDouble.nextDouble());
         System.out.println("Digite nova data da ultima medicação:");
-        a.setDataUltimaMedicacao(s.nextLine());
+        a.setDataUltimaMedicacao(sLine.nextLine());
 
         try {
             aDao.updateAlturaDataUltMed(a);
@@ -101,20 +105,26 @@ public class UpdateAnimalInterface {
         }
     }
 
-    private void updatePesoAlturaDataUltMed(Scanner s) {
+    private void updatePesoAlturaDataUltMed() {
         System.out.println("Digite o registro do animal:");
-        a.setRegistro(s.nextInt());
+        a.setRegistro(sInt.nextInt());
         System.out.println("Digite a nova altura:");
-        a.setAltura(s.nextDouble());
+        a.setAltura(sDouble.nextDouble());
         System.out.println("Digite o novo peso:");
-        a.setPeso(s.nextDouble());
+        a.setPeso(sDouble.nextDouble());
         System.out.println("Digite nova data da ultima medicação:");
-        a.setDataUltimaMedicacao(s.nextLine());
+        a.setDataUltimaMedicacao(sLine.nextLine());
 
         try {
             aDao.updatePesoAlturaDataUltMed(a);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    
+    private void iniciarScanners() {
+    	sInt = new Scanner(System.in);
+    	sLine = new Scanner(System.in);
+    	sDouble = new Scanner(System.in);
     }
 }

@@ -10,6 +10,10 @@ public class InsertItemInterface {
 
     private ItemDAO iDao;
     private Item i = new Item();
+    
+    private Scanner sInt;
+   	private Scanner sLine;
+   	private Scanner sDouble;
 
     public InsertItemInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.iDao = new ItemDAO();
@@ -19,66 +23,73 @@ public class InsertItemInterface {
         System.out.println("3 - Inserir sem preço da loja");
         opcao(s.nextInt(), s);
     }
+    
+    private void iniciarScanners() {
+    	sInt = new Scanner(System.in);
+    	sLine = new Scanner(System.in);
+    	sDouble = new Scanner(System.in);
+    }
 
     private void opcao(int nextInt, Scanner s) throws SQLException {
+    	iniciarScanners();
         switch (nextInt) {
         case 1:
-            inserirItem(s);
+            inserirItem();
             break;
         case 2:
-            inserirSemValidade(s);
+            inserirSemValidade();
             break;
         case 3:
-            inserirSemPrecoLoja(s);
+            inserirSemPrecoLoja();
             break;
         default:
             break;
         }
     }
 
-    private void inserirSemPrecoLoja(Scanner s) throws SQLException {
+    private void inserirSemPrecoLoja() throws SQLException {
         System.out.println("Digite a descrição: ");
-        i.setDescricao(s.nextLine());
+        i.setDescricao(sLine.nextLine());
         System.out.println("Digite o tipo: ");
-        i.setTipo(s.nextLine());
+        i.setTipo(sLine.nextLine());
         System.out.println("Digite o preço do fornecedor: ");
-        i.setPrecoFornecedor(s.nextDouble());
+        i.setPrecoFornecedor(sDouble.nextDouble());
         System.out.println("Digite a data de validade: ");
-        i.setDataValidade(s.nextLine());
+        i.setDataValidade(sLine.nextLine());
         System.out.println("Digite a quantidade de estoque:");
-        i.setQtdEstoque(s.nextInt());
+        i.setQtdEstoque(sInt.nextInt());
 
         iDao.inserirItem(i);
     }
 
-    private void inserirSemValidade(Scanner s) throws SQLException {
+    private void inserirSemValidade() throws SQLException {
         System.out.println("Digite a descrição: ");
-        i.setDescricao(s.nextLine());
+        i.setDescricao(sLine.nextLine());
         System.out.println("Digite o tipo: ");
-        i.setTipo(s.nextLine());
+        i.setTipo(sLine.nextLine());
         System.out.println("Digite o preço do fornecedor: ");
-        i.setPrecoFornecedor(s.nextDouble());
+        i.setPrecoFornecedor(sDouble.nextDouble());
         System.out.println("Digite o preço da loja: ");
-        i.setPrecoLoja(s.nextDouble());
+        i.setPrecoLoja(sDouble.nextDouble());
         System.out.println("Digite a quantidade de estoque:");
-        i.setQtdEstoque(s.nextInt());
+        i.setQtdEstoque(sInt.nextInt());
 
         iDao.inserirSemValidade(i);
     }
 
-    private void inserirItem(Scanner s) throws SQLException {
+    private void inserirItem() throws SQLException {
         System.out.println("Digite a descrição: ");
-        i.setDescricao(s.nextLine());
+        i.setDescricao(sLine.nextLine());
         System.out.println("Digite o tipo: ");
-        i.setTipo(s.nextLine());
+        i.setTipo(sLine.nextLine());
         System.out.println("Digite o preço do fornecedor: ");
-        i.setPrecoFornecedor(s.nextDouble());
+        i.setPrecoFornecedor(sDouble.nextDouble());
         System.out.println("Digite o preço da loja: ");
-        i.setPrecoLoja(s.nextDouble());
+        i.setPrecoLoja(sDouble.nextDouble());
         System.out.println("Digite a data de validade: ");
-        i.setDataValidade(s.nextLine());
+        i.setDataValidade(sLine.nextLine());
         System.out.println("Digite a quantidade de estoque:");
-        i.setQtdEstoque(s.nextInt());
+        i.setQtdEstoque(sInt.nextInt());
 
         iDao.inserirItem(i);
     }

@@ -6,62 +6,73 @@ import java.util.Scanner;
 import dao.AnimalDAO;
 
 public class SelectAnimalInterface {
-    private AnimalDAO aDao = null;
 
-    public SelectAnimalInterface(Scanner s) throws ClassNotFoundException, SQLException {
-        this.aDao = new AnimalDAO();
-        System.out.println("Selecionar da tabela animal");
-        System.out.println("1 - Selecionar tudo");
-        System.out.println("2 - Selecionar por tipo");
-        System.out.println("3 - Selecionar por preço de venda");
-        System.out.println("4 - Selecionar totalização");
-        System.out.println("5 - Selecionar lucro");
-        opcao(s.nextInt(), s);
-    }
+	private Scanner sInt;
+	private Scanner sLine;
+	private Scanner sDouble;
+	private AnimalDAO aDao = null;
 
-    private void opcao(int nextInt, Scanner s) throws SQLException {
-        switch (nextInt) {
-        case 1:
-            aDao.selectAll();
-            break;
+	public SelectAnimalInterface(Scanner s) throws ClassNotFoundException, SQLException {
+		this.aDao = new AnimalDAO();
+		System.out.println("Selecionar da tabela animal");
+		System.out.println("1 - Selecionar tudo");
+		System.out.println("2 - Selecionar por tipo");
+		System.out.println("3 - Selecionar por preço de venda");
+		System.out.println("4 - Selecionar totalização");
+		System.out.println("5 - Selecionar lucro");
+		opcao(s.nextInt(), s);
+	}
 
-        case 2:
-            selectPorTipo(s);
-            break;
+	private void opcao(int nextInt, Scanner s) throws SQLException {
+		iniciarScanners();
+		switch (nextInt) {
+		case 1:
+			aDao.selectAll();
+			break;
 
-        case 3:
-            selectPorPrecoDeVenda(s);
-            break;
+		case 2:
+			selectPorTipo();
+			break;
 
-        case 4:
-            aDao.selectTotalizacao();
-            break;
+		case 3:
+			selectPorPrecoDeVenda();
+			break;
 
-        case 5:
-            aDao.selectLucro();
-            break;
-        default:
-            break;
-        }
-    }
+		case 4:
+			aDao.selectTotalizacao();
+			break;
 
-    private void selectPorPrecoDeVenda(Scanner s) {
-        System.out.println("Digite o preço de venda: ");
+		case 5:
+			aDao.selectLucro();
+			break;
+		default:
+			break;
+		}
+	}
 
-        try {
-            aDao.selectPorPrecoDeVenda(s.nextDouble());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+	private void selectPorPrecoDeVenda() {
+		System.out.println("Digite o preço de venda: ");
 
-    private void selectPorTipo(Scanner s) {
-        System.out.println(" Digite o tipo: ");
+		try {
+			aDao.selectPorPrecoDeVenda(sDouble.nextDouble());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
-        try {
-            aDao.selectPorTipo(s.nextLine());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+	private void selectPorTipo() {
+		System.out.println(" Digite o tipo: ");
+
+		try {
+			aDao.selectPorTipo(sLine.nextLine());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void iniciarScanners() {
+    	sInt = new Scanner(System.in);
+    	sLine = new Scanner(System.in);
+    	sDouble = new Scanner(System.in);
     }
 }

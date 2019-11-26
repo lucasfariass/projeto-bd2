@@ -10,6 +10,10 @@ public class UpdateVendaAnimal {
 
     private VendaAnimalDAO vDao;
     private VendaAnimal v = new VendaAnimal();
+    
+    private Scanner sInt;
+	private Scanner sLine;
+	private Scanner sDouble;
 
     public UpdateVendaAnimal(Scanner s) throws ClassNotFoundException, SQLException {
         this.vDao = new VendaAnimalDAO();
@@ -20,62 +24,69 @@ public class UpdateVendaAnimal {
         System.out.println("4 - Atualizar desconto");
         opcao(s.nextInt(), s);
     }
+    
+    private void iniciarScanners() {
+    	sInt = new Scanner(System.in);
+    	sLine = new Scanner(System.in);
+    	sDouble = new Scanner(System.in);
+    }
 
     private void opcao(int nextInt, Scanner s) throws SQLException {
+    	iniciarScanners();
         switch (nextInt) {
         case 1:
-            updateRegistroAnimal(s);
+            updateRegistroAnimal();
             break;
         case 2:
-            updateMatriculaFuncionario(s);
+            updateMatriculaFuncionario();
             break;
         case 3:
-            updateDiaMesAno(s);
+            updateDiaMesAno();
             break;
         case 4:
-            updateDesconto(s);
+            updateDesconto();
             break;
         default:
             break;
         }
     }
 
-    private void updateDesconto(Scanner s) throws SQLException {
+    private void updateDesconto() throws SQLException {
         System.out.println("Digite a nota fiscal: ");
-        v.setNotaFiscal(s.nextInt());
+        v.setNotaFiscal(sInt.nextInt());
         System.out.println("Digite o novo desconto: ");
-        v.setDesconto(s.nextDouble());
+        v.setDesconto(sDouble.nextDouble());
 
         vDao.updateDesconto(v);
     }
 
-    private void updateDiaMesAno(Scanner s) throws SQLException {
+    private void updateDiaMesAno() throws SQLException {
         System.out.println("Digite a nota fiscal: ");
-        v.setNotaFiscal(s.nextInt());
+        v.setNotaFiscal(sInt.nextInt());
         System.out.println("Digite o novo dia: ");
-        v.setDia(s.nextInt());
+        v.setDia(sInt.nextInt());
         System.out.println("Digite o novo mes: ");
-        v.setMes(s.nextInt());
+        v.setMes(sInt.nextInt());
         System.out.println("Digite o novo ano: ");
-        v.setAno(s.nextInt());
+        v.setAno(sInt.nextInt());
 
         vDao.updateDiaMesAno(v);
     }
 
-    private void updateMatriculaFuncionario(Scanner s) throws SQLException {
+    private void updateMatriculaFuncionario() throws SQLException {
         System.out.println("Digite a nota fiscal: ");
-        v.setNotaFiscal(s.nextInt());
+        v.setNotaFiscal(sInt.nextInt());
         System.out.println("Digite a nova matricula: ");
-        v.setMatriculaFuncionario(s.nextInt());
+        v.setMatriculaFuncionario(sInt.nextInt());
 
         vDao.updateMatriculaFuncionario(v);
     }
 
-    private void updateRegistroAnimal(Scanner s) throws SQLException {
+    private void updateRegistroAnimal() throws SQLException {
         System.out.println("Digite a nota fiscal: ");
-        v.setNotaFiscal(s.nextInt());
+        v.setNotaFiscal(sInt.nextInt());
         System.out.println("Digite o novo registro: ");
-        v.setRegistroAnimal(s.nextInt());
+        v.setRegistroAnimal(sInt.nextInt());
 
         vDao.updateRegistroAnimal(v);
     }

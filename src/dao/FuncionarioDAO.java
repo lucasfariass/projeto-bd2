@@ -31,14 +31,16 @@ public class FuncionarioDAO {
     }
 
     public void inserirSemSalario(Funcionario f) throws SQLException {
-        String sql = "INSERT INTO funcionario(nome, cpf, endereco, telefone, data_nascimento, data_admissao, funcao) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO funcionario(nome, cpf, endereco, telefone, data_nascimento, data_admissao, funcao, salario) VALUES(?,?,?,?,?,?,?,?)";
         PreparedStatement query = con.prepareStatement(sql);
         query.setString(1, f.getNome());
-        query.setString(2, f.getEndereco());
-        query.setString(3, f.getTelefone());
-        query.setObject(4, f.getDataNascimento());
-        query.setObject(5, f.getDataAdmissao());
-        query.setString(6, f.getFuncao());
+        query.setString(2, f.getCpf());
+        query.setString(3, f.getEndereco());
+        query.setString(4, f.getTelefone());
+        query.setObject(5, f.getDataNascimento());
+        query.setObject(6, f.getDataAdmissao());
+        query.setString(7, f.getFuncao());
+        query.setDouble(8, 0);
         query.execute();
         query.close();
     }

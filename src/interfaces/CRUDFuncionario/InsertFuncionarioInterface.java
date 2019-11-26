@@ -10,6 +10,9 @@ public class InsertFuncionarioInterface {
 
     private FuncionarioDAO fDao = null;
     private Funcionario f = new Funcionario();
+	private Scanner sInt;
+	private Scanner sLine;
+	private Scanner sDouble;
 
     public InsertFuncionarioInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.fDao = new FuncionarioDAO();
@@ -23,70 +26,88 @@ public class InsertFuncionarioInterface {
     private void acao(int nextInt, Scanner s) throws SQLException {
         switch (nextInt) {
         case 1:
-            inserirFuncionario(s);
+            inserirFuncionario();
             break;
         case 2:
-            inserirSemSalario(s);
+            inserirSemSalario();
             break;
         case 3:
-            inserirSemTelefone(s);
+            inserirSemTelefone();
             break;
         default:
             break;
         }
     }
 
-    private void inserirSemTelefone(Scanner s) throws SQLException {
+    private void inserirSemTelefone() throws SQLException {
+    	iniciarScanners();
+    
         System.out.println("Inserir nome:");
-        f.setNome(s.nextLine());
+        f.setNome(sLine.nextLine());
+        System.out.println("Inserir CPF:");
+        f.setCpf(sLine.nextLine());
         System.out.println("Inserir Endereço:");
-        f.setEndereco(s.nextLine());
+        f.setEndereco(sLine.nextLine());
         System.out.println("Inserir Salario:");
-        f.setSalario(s.nextDouble());
+        f.setSalario(sDouble.nextDouble());
         System.out.println("Inserir Data de Nascimento:");
-        f.setDataNascimento(s.nextLine());
+        f.setDataNascimento(sLine.nextLine());
         System.out.println("Inserir Data de Admissao:");
-        f.setDataAdmissao(s.nextLine());
+        f.setDataAdmissao(sLine.nextLine());
         System.out.println("Inserir função:");
-        f.setFuncao(s.nextLine());
+        f.setFuncao(sLine.nextLine());
+
+        fDao.inserirSemTelefone(f);
+    }
+
+    private void inserirSemSalario() throws SQLException {
+    	iniciarScanners();
+    	
+        System.out.println("Inserir Nome:");
+        f.setNome(sLine.nextLine());
+        System.out.println("Inserir CPF:");
+        f.setCpf(sLine.nextLine());
+        System.out.println("Inserir Endereço:");
+        f.setEndereco(sLine.nextLine());
+        System.out.println("Inserir Telefone:");
+        f.setTelefone(sLine.nextLine());
+        System.out.println("Inserir Data de Nascimento:");
+        f.setDataNascimento(sLine.nextLine());
+        System.out.println("Inserir Data de Admissao:");
+        f.setDataAdmissao(sLine.nextLine());
+        System.out.println("Inserir função:");
+        f.setFuncao(sLine.nextLine());
+
+        fDao.inserirSemSalario(f);
+    }
+
+    private void inserirFuncionario() throws SQLException {
+    	iniciarScanners();
+    	
+        System.out.println("Inserir nome:");
+        f.setNome(sLine.nextLine());
+        System.out.println("Inserir CPF:");
+        f.setCpf(sLine.nextLine());
+        System.out.println("Inserir Endereço:");
+        f.setEndereco(sLine.nextLine());
+        System.out.println("Inserir Telefone:");
+        f.setTelefone(sLine.nextLine());
+        System.out.println("Inserir Salario:");
+        f.setSalario(sDouble.nextDouble());
+        System.out.println("Inserir Data de Nascimento:");
+        f.setDataNascimento(sLine.nextLine());
+        System.out.println("Inserir Data de Admissao:");
+        f.setDataAdmissao(sLine.nextLine());
+        System.out.println("Inserir função:");
+        f.setFuncao(sLine.nextLine());
 
         fDao.inserirFuncionario(f);
     }
-
-    private void inserirSemSalario(Scanner s) throws SQLException {
-        System.out.println("Inserir nome:");
-        f.setNome(s.nextLine());
-        System.out.println("Inserir Endereço:");
-        f.setEndereco(s.nextLine());
-        System.out.println("Inserir Telefone:");
-        f.setTelefone(s.nextLine());
-        System.out.println("Inserir Data de Nascimento:");
-        f.setDataNascimento(s.nextLine());
-        System.out.println("Inserir Data de Admissao:");
-        f.setDataAdmissao(s.nextLine());
-        System.out.println("Inserir função:");
-        f.setFuncao(s.nextLine());
-
-        fDao.inserirFuncionario(f);
-    }
-
-    private void inserirFuncionario(Scanner s) throws SQLException {
-        System.out.println("Inserir nome:");
-        f.setNome(s.nextLine());
-        System.out.println("Inserir Endereço:");
-        f.setEndereco(s.nextLine());
-        System.out.println("Inserir Telefone:");
-        f.setTelefone(s.nextLine());
-        System.out.println("Inserir Salario:");
-        f.setSalario(s.nextDouble());
-        System.out.println("Inserir Data de Nascimento:");
-        f.setDataNascimento(s.nextLine());
-        System.out.println("Inserir Data de Admissao:");
-        f.setDataAdmissao(s.nextLine());
-        System.out.println("Inserir função:");
-        f.setFuncao(s.nextLine());
-
-        fDao.inserirFuncionario(f);
+    
+    private void iniciarScanners() {
+    	sInt = new Scanner(System.in);
+    	sLine = new Scanner(System.in);
+    	sDouble = new Scanner(System.in);
     }
 
 }

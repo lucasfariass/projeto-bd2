@@ -10,6 +10,9 @@ public class InsertVendaAnimalInterface {
 
     private VendaAnimalDAO vDao;
     private VendaAnimal v = new VendaAnimal();
+    private Scanner sInt;
+	private Scanner sLine;
+	private Scanner sDouble;
 
     public InsertVendaAnimalInterface(Scanner s) throws ClassNotFoundException, SQLException {
         this.vDao = new VendaAnimalDAO();
@@ -19,55 +22,62 @@ public class InsertVendaAnimalInterface {
         opcao(s.nextInt(), s);
     }
 
+    private void iniciarScanners() {
+    	sInt = new Scanner(System.in);
+    	sLine = new Scanner(System.in);
+    	sDouble = new Scanner(System.in);
+    }
+
     private void opcao(int nextInt, Scanner s) throws SQLException {
+    	iniciarScanners();
         switch (nextInt) {
         case 1:
-            inserirVendaAnimal(s);
+            inserirVendaAnimal();
             break;
         case 2:
-            inserirSemDesconto(s);
+            inserirSemDesconto();
             break;
         default:
             break;
         }
     }
 
-    private void inserirSemDesconto(Scanner s) throws SQLException {
+    private void inserirSemDesconto() throws SQLException {
         System.out.println("Digite o registro do animal:");
-        v.setRegistroAnimal(s.nextInt());
+        v.setRegistroAnimal(sInt.nextInt());
         System.out.println("Digite a matricula do funcionario:");
-        v.setMatriculaFuncionario(s.nextInt());
+        v.setMatriculaFuncionario(sInt.nextInt());
         System.out.println("Digite o dia: ");
-        v.setDia(s.nextInt());
+        v.setDia(sInt.nextInt());
         System.out.println("Digite o mes");
-        v.setMes(s.nextInt());
+        v.setMes(sInt.nextInt());
         System.out.println("Digite o ano:");
-        v.setAno(s.nextInt());
+        v.setAno(sInt.nextInt());
         System.out.println("Digite a comissao:");
-        v.setComissaoAnimal(s.nextDouble());
+        v.setComissaoAnimal(sDouble.nextDouble());
         System.out.println("Digite o valor final");
-        v.setValorFinal(s.nextDouble());
+        v.setValorFinal(sDouble.nextDouble());
 
         vDao.inserirSemDesconto(v);
     }
 
-    private void inserirVendaAnimal(Scanner s) throws SQLException {
+    private void inserirVendaAnimal() throws SQLException {
         System.out.println("Digite o registro do animal:");
-        v.setRegistroAnimal(s.nextInt());
+        v.setRegistroAnimal(sInt.nextInt());
         System.out.println("Digite a matricula do funcionario:");
-        v.setMatriculaFuncionario(s.nextInt());
+        v.setMatriculaFuncionario(sInt.nextInt());
         System.out.println("Digite o dia: ");
-        v.setDia(s.nextInt());
+        v.setDia(sInt.nextInt());
         System.out.println("Digite o mes");
-        v.setMes(s.nextInt());
+        v.setMes(sInt.nextInt());
         System.out.println("Digite o ano:");
-        v.setAno(s.nextInt());
+        v.setAno(sInt.nextInt());
         System.out.println("Digite a comissao:");
-        v.setComissaoAnimal(s.nextDouble());
+        v.setComissaoAnimal(sDouble.nextDouble());
         System.out.println("Digite o desconto");
-        v.setDesconto(s.nextDouble());
+        v.setDesconto(sDouble.nextDouble());
         System.out.println("Digite o valor final");
-        v.setValorFinal(s.nextDouble());
+        v.setValorFinal(sDouble.nextDouble());
 
         vDao.inserirVendaAnimal(v);
     }
